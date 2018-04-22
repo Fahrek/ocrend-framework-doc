@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {# Formato #}
+    {{ base_assets()|raw }}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/web/build/css/main.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" />
+    <meta name="msapplication-square70x70logo" content="https://ocrend.com/assets/img/overall/msapplication-square70x70logo.png"/>
+    <meta name="msapplication-square150x150logo" content="https://ocrend.com/assets/img/overall/msapplication-square150x150logo.png"/>
+    <meta name="msapplication-square310x310logo" content="https://ocrend.com/assets/img/overall/msapplication-square310x310logo.png"/>
+    <meta name="apple-mobile-web-app-title" content="Ocrend Framework"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="theme-color" content="#041830"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="https://framework.ocrend.com/ocrend_framework_iso.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="https://framework.ocrend.com/ocrend_framework_iso.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="https://framework.ocrend.com/ocrend_framework_iso.png"/>
+    <link rel="apple-touch-icon" sizes="167x167" href="https://framework.ocrend.com/ocrend_framework_iso.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://framework.ocrend.com/ocrend_framework_iso.png"/>
+    <link rel="icon" sizes="192x192" href="https://framework.ocrend.com/ocrend_framework_iso.png"/>
+    <link rel="apple-touch-icon" href="https://framework.ocrend.com/ocrend_framework_iso.png"/>
+
+    {% block appHeader %}
+    {% endblock %}
+
+    <title>{{ config.build.name }} {% block pageTitle %}{% endblock %}</title>
+</head>
+<body>
+
+    {% include 'overall/topnav' %}
+
+    {% block appBody %}
+    {% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/jscontrollers/overall/overall.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>    
+
+    {% block appFooter %}
+    {% endblock %}
+</body>
+</html>
