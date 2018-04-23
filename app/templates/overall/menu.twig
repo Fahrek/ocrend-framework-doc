@@ -1,11 +1,11 @@
 <aside class="oculto-mobile">
     <nav>
         <ul>
-            <li class="menu-plegable">
+            <li class="menu-plegable {{ controller in ['home','sobre','descarga'] ? 'plegado' : '' }}">
                 <a href="javascript:void(0)">Introducción</a>
                 <ul>
-                    <li><a href="sobre/">Sobre el framework</a></li>
-                    <li><a href="descarga/">Descarga y Configuración</a></li>
+                    <li><a class="{{ controller in ['home','sobre'] ? 'active' : '' }}" href="sobre/">Sobre el framework</a></li>
+                    <li><a class="{{ controller == 'descarga' ? 'active' : '' }}" href="descarga/">Descarga y Configuración</a></li>
                 </ul>
             </li>
             <li><a href="estructura/">Estructura</a></li>

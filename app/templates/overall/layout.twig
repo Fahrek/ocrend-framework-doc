@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/web/build/css/main.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" />
+    <link rel="stylesheet" href="assets/web/build/css/syntax.min.css">    
     <meta name="msapplication-square70x70logo" content="https://ocrend.com/assets/img/overall/msapplication-square70x70logo.png"/>
     <meta name="msapplication-square150x150logo" content="https://ocrend.com/assets/img/overall/msapplication-square150x150logo.png"/>
     <meta name="msapplication-square310x310logo" content="https://ocrend.com/assets/img/overall/msapplication-square310x310logo.png"/>
@@ -39,6 +40,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/jscontrollers/overall/overall.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>    
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+        </script>
 
     {% block appFooter %}
     {% endblock %}

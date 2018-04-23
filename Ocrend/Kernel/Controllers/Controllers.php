@@ -108,6 +108,7 @@ abstract class Controllers {
         $this->template->addGlobal('cookie', $cookie->all());
         $this->template->addGlobal('config', $config);
         $this->template->addGlobal('is_logged', $this->is_logged);
+        $this->template->addGlobal('controller', $router->getController());
 
         # Datos del usuario actual
         if ($this->is_logged) {

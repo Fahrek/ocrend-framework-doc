@@ -10,7 +10,16 @@
                 	<h1>Introducción</h1>
 					<h2>¿Qué es Ocrend Framework 3?</h2>
 					<p>Es un framework sencillo y robusto, escrito en <strong>PHP 7</strong> que utiliza la arquitectura <strong>MVC</strong> y componentes de Symfony como base de su aplicación en el desarrollo web, adicionalmente pretende acelerar el proceso de desarrollo con unas cuantas herramientas. La curva de aprendizaje es bastante baja. El concepto del framework es ofrecer una arquitectura de sencillo manejo, inclusive para aquellos que jamás han programado utilizando MVC.</p>
-					<p class="text-center">
+					<pre><code class="php">
+class homeController extends Controllers implements IControllers {
+
+    public function __construct(IRouter $router) {
+        parent::__construct($router);
+        $this->template->display('home/home');
+    }
+}
+                    </code></pre>
+                    <p class="text-center">
                         <a href="https://scrutinizer-ci.com/g/prinick96/Ocrend-Framework/"><img src="https://scrutinizer-ci.com/g/prinick96/Ocrend-Framework/badges/quality-score.png?b=master" style="max-width:100%;"></a>
                         <a href="https://scrutinizer-ci.com/g/prinick96/Ocrend-Framework/badges/build.png?b=master"><img style="max-width:100%;" src="https://scrutinizer-ci.com/g/prinick96/Ocrend-Framework/badges/build.png?b=master"></a>
                         <a href="javascript:void(0)"><img src="https://img.shields.io/badge/php-7-blue.svg" alt="Licencia MIT" data-canonical-src="https://img.shields.io/badge/php-7-blue.svg" style="max-width:100%;"></a>
@@ -28,7 +37,21 @@
                         <li>No estás interesado en aprender un framework gigante como Symfony, Laravel o ZendFramework</li>
                         <li>No necesitas gestionar rutas usando namespaces o requires/includes, el framework lo hace por tí</li>
                         <li>Incluye Silex en sus dependencias, para manejo de API REST correctamente configurado</li>
+                        <li>Soporte de múltiples bases de datos, utilizando PDO y Drivers nativos para obtener el máximo rendimiento
+                            <ul>
+                                <li>MySQL 5.7+</li>
+                                <li>SQLite3</li>
+                            </ul>
+                        </li>
                     </ul>
+
+                     <h2>Requisitos</h2>
+                     <p>Para colocar el framework se requiere un servidor que cumpla con las siguientes características:</p>
+                     <ul>
+						<li>PHP 7</li>
+						<li>APACHE 2</li>
+						<li>Cualquier motor de base de datos de los mencionados anteriormente</li>
+					</ul>              
             </section>
 
         </main>
