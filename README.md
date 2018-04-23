@@ -4,6 +4,11 @@
 
 ## Helpers
 
+- Crear vista y controlador listo para escribir (con el diseño de la web)
+```
+php gen app:c Pagina v
+```
+
 - Resaltar código
 ```html
 <pre><code class="php">echo 'Esto es un código en php'</code></pre>
@@ -11,5 +16,5 @@
 
 - Resaltar ruta de archivo u otro texto importante
 ```html
-<pre class="important">app/controllers/controladorController.php</pre>
+<span>app/controllers/controladorController.php</span>
 ```

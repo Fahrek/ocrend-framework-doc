@@ -1,0 +1,86 @@
+{% extends 'overall/layout' %}
+{% block pageTitle %}Descarga y Configuración{% endblock %}
+{% block appBody %}
+    <div class="contenedor">
+        <main class="row">
+
+            {% include 'overall/menu' %}
+
+            <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
+                <h1>Descarga y Configuración</h1>
+                <h2>Descarga</h2>
+                <p>Clonando el repositorio</p>
+                <pre class="ssh"><code>git clone https://github.com/prinick96/Ocrend-Framework.git</code></pre>
+                <p><a href="https://github.com/prinick96/Ocrend-Framework/releases">Descargando el paquete manualmente</a></p>
+            
+                <h2>Permisos Necesarios</h2>
+                <p>En caso de estar en LINUX y obtener problemas de persmisos de escritura o lectura, poner en la consola lo siguiente:</p>
+                <pre class="ssh"><code>sudo chmod -R 777 /ruta/en/donde/esta/el/framework</code></pre>
+
+                <h2>Configuración</h2>
+                <p>Para empezar la configuración del sitio y que nuestro framework funcione correctamente para empezar a trabajar o para subir a producción, debemos configurar en <span>./Ocrend/Kernel/Config/Ocrend.ini.yml</span></p>
+                <pre class="css"><code>
+site:
+  production: false
+  name: Mi App
+  url: localhost/miapp/
+  
+router:
+  ssl: false
+  path: localhost/miapp/        
+                </code></pre>
+                <p><span>NOTA:</span> Se entiende, que si se está en localhost, y la ruta es http://localhost/carpeta/el-framework/, de acuerdo a eso, se debe configurar el <span>path</span> y la <span>url</span>.</p>
+            
+                <h2>Parámetros en <span>Ocrend.ini.yml</span></h2>
+                <table>
+					<thead>
+						<tr>
+							<th>Atributo YAML</th>
+							<th>Función</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><span>database/default_driver</span></td>
+							<td>Motor por defecto para conexión con la base de datos</td>
+						</tr>
+						<tr>
+							<td><span>database/drivers/mysql</span></td>
+							<td>Configuración para conexión con el motor MySQL</td>
+						</tr>
+						<tr>
+							<td><span>database/drivers/sqlite3</span></td>
+							<td>Configuración para conexión con el motor SQlite3</td>
+						</tr>
+						<tr>
+							<td><span>mailer</span></td>
+							<td>Configuración para conexión SMTP para envio de correos electrónicos con <span>Helper\Emails</span></td>
+						</tr>
+						<tr>
+							<td><span>twig</span></td>
+							<td>Configuración para los templates <strong>twig</strong></td>
+						</tr>
+						<tr>
+							<td><span>build</span></td>
+							<td>Configuración del sitio, entre ellos el modo producción, nombre y url</td>
+						</tr>
+						<tr>
+							<td><span>sessions</span></td>
+							<td>Configuración de las sesiones del sistema</td>
+						</tr>
+						<tr>
+							<td><span>api</span></td>
+							<td>Configuración de la api</td>
+						</tr>
+						<tr>
+							<td><span>router</span></td>
+							<td>Configuración del enrutador para las URL's amigables</td>
+						</tr>
+					</tbody>
+				</table>
+            </section>
+        </main>
+    </div>
+
+    {% include 'overall/footer' %}
+{% endblock %}
