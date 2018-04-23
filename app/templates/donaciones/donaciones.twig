@@ -1,0 +1,83 @@
+{% extends 'overall/layout' %}
+{% block appBody %}
+    <div class="contenedor">
+        <main class="row">
+
+            {% include 'overall/menu' %}
+
+            <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
+                <h1>Dona hoy a Ocrend</h1>	 
+                <p>Nos enorgullece que <strong>Ocrend Framework</strong> sea un proyecto open source. Ayúdanos a seguir realizando éste trabajo para tí y toda la comunidad de programadores.</p>      
+                <p>Puedes realizar una donación a través de cualquiera de estos medios.</p>
+
+                <table>
+					<thead>
+						<tr>
+							<th class="hidden-xs">Método</th>
+							<th>Dirección</th>
+						</tr>
+					</thead>
+					<tbody>
+                        <tr>
+                            <td class="img hidden-xs">
+                                <img src="assets/web/build/img/donaciones/paypal.png" alt="PayPal" title="PayPal" height="60" />
+                            </td>
+                            <td>
+                                <strong class="hidden-sm hiddem-md hidden-lg">Paypal: <br /></strong>
+                                <a href="https://www.paypal.me/OcrendSoftware" target="_blank">paypal.me/OcrendSoftware</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="img hidden-xs">
+                                <img src="assets/web/build/img/donaciones/btc.png" alt="Bitcoin" title="Bitcoin" height="60" />
+                            </td>
+                            <td>
+                                <strong class="hidden-sm hiddem-md hidden-lg">Bitcoin: <br /></strong>
+                                <a href="bitcoin:3MPsW5ucFJDrCfsPs3hpyjECpU7X8agsyQ">3MPsW5ucFJDrCfsPs3hpyjECpU7X8agsyQ</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="img hidden-xs">
+                                <img src="assets/web/build/img/donaciones/burst.png" alt="Burst" title="Burst" height="60" />
+                            </td>
+                            <td>
+                                <strong class="hidden-sm hiddem-md hidden-lg">Burst: <br /></strong>
+                                <a href="burst:BURST-8GB5-46B7-8EPG-B4XTK">BURST-8GB5-46B7-8EPG-B4XTK</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="img hidden-xs">
+                                <img src="assets/web/build/img/donaciones/xrp.png" alt="Ripple" title="Ripple" height="60" />
+                            </td>
+                            <td>
+                                <strong class="hidden-sm hiddem-md hidden-lg">Ripple: <br /></strong>
+                                <a href="ripple:rNWKLzPiHVjE83ccnRkiusHpzsUXN5DN9Z">rNWKLzPiHVjE83ccnRkiusHpzsUXN5DN9Z</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="img hidden-xs">
+                                <img src="assets/web/build/img/donaciones/ltc.png" alt="Litecoin" title="Litecoin" height="60" />
+                            </td>
+                            <td>
+                                <strong class="hidden-sm hiddem-md hidden-lg">Litecoin: <br /></strong>
+                                <a href="litecoin:LWgvABWprGVYNM4LeTDw5hBiNvzf63meYn">LWgvABWprGVYNM4LeTDw5hBiNvzf63meYn</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="img hidden-xs">
+                                <img src="assets/web/build/img/donaciones/eth.png" alt="Ethereum" title="Ethereum" height="60" />
+                            </td>
+                            <td>
+                                <strong class="hidden-sm hiddem-md hidden-lg">Ethereum: <br /></strong>
+                                <a href="ethereum:0x172F0833011A816E4E332c793448c9008340dA98">0x172F0833011A816E4E332c793448c9008340dA98</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    {% include 'overall/footer' %}
+{% endblock %}

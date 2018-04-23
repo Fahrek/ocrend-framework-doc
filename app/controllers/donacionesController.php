@@ -18,17 +18,15 @@ use Ocrend\Kernel\Controllers\IControllers;
 use Ocrend\Kernel\Router\IRouter;
 
 /**
- * Controlador home/
- *
- * @author Ocrend Software C.A <bnarvaez@ocrend.com>
+ * Controlador donaciones/
 */
-class homeController extends Controllers implements IControllers {
+class donacionesController extends Controllers implements IControllers {
 
     public function __construct(IRouter $router) {
         parent::__construct($router);
-        $this->template->display('home/home',array(
-            'page_title' => 'Documentación oficial',
-            'page_description' => 'Documentación oficial de Ocrend Framework, Framework MVC Escrito en PHP 7 ideal para principiantes y expertos en desarrollo web con PHP y PDO'
+        $this->template->display('donaciones/donaciones',array(
+            'page_title' => 'Dona hoy a Ocrend',
+            'page_description' => 'Nos enorgullece que Ocrend Framework sea un proyecto open source. Ayúdanos a seguir realizando éste trabajo para tí y toda la comunidad de programadores.'
         ));
     }
 }

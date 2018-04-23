@@ -26,6 +26,9 @@ class sobreController extends Controllers implements IControllers {
 
     public function __construct(IRouter $router) {
         parent::__construct($router);
-        $this->template->display('home/home');
+        $this->template->display('home/home',array(
+            'page_title' => 'Documentación oficial',
+            'page_description' => 'Documentación oficial de Ocrend Framework, Framework MVC Escrito en PHP 7 ideal para principiantes y expertos en desarrollo web con PHP y PDO'
+        ));
     }
 }

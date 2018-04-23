@@ -1,39 +1,41 @@
 <aside class="oculto-mobile">
     <nav>
         <ul>
-            <li class="menu-plegable {{ controller in ['home','sobre','descarga'] ? 'plegado' : '' }}">
+            <li class="menu-plegable {{ controller in ['home','sobre','descarga','produccion'] ? 'plegado' : '' }}">
                 <a href="javascript:void(0)">Introducción</a>
                 <ul>
-                    <li><a class="{{ controller in ['home','sobre'] ? 'active' : '' }}" href="sobre/">Sobre el framework</a></li>
-                    <li><a class="{{ controller == 'descarga' ? 'active' : '' }}" href="descarga/">Descarga y Configuración</a></li>
+                    <li><a class="{{ controller in ['home','sobre'] ? 'active' : '' }}" href="sobre">Sobre el framework</a></li>
+                    <li><a class="{{ controller == 'descarga' ? 'active' : '' }}" href="descarga">Descarga y Configuración</a></li>
+                    <li><a class="{{ controller == 'produccion' ? 'active' : '' }}" href="produccion">Modo Desarrollo/Producción</a></li>
                 </ul>
             </li>
-            <li><a href="estructura/">Estructura</a></li>
-            <li><a href="controladores/">Controladores</a></li>
-            <li><a href="rutas/">Rutas / URL Amigables</a></li>
-            <li><a href="vistas/">Vistas (Twig)</a></li>
-            <li><a href="http/">Peticiones HTTP</a></li>
-            <li class="menu-plegable">
+            <li><a class="{{ controller == 'estructura' ? 'active' : '' }}" href="estructura">Estructura</a></li>
+            <li><a class="{{ controller == 'controladores' ? 'active' : '' }}" href="controladores">Controladores</a></li>
+            <li><a class="{{ controller == 'rutas' ? 'active' : '' }}" href="rutas">Rutas / URL Amigables</a></li>
+            <li><a class="{{ controller == 'vistas' ? 'active' : '' }}" href="vistas">Vistas (Twig)</a></li>
+            <li><a class="{{ controller == 'http' ? 'active' : '' }}" href="http">Peticiones HTTP</a></li>
+            <li class="menu-plegable {{ controller == 'helpers' or method in ['arrays','emails','files','strings','functions'] ? 'plegado' : '' }}">
                 <a href="javascript:void(0)">Helpers</a>
                 <ul>
-                    <li><a href="helpers/">Uso y Creación</a></li>
-                    <li><a href="helpers/arrays/">Arrays</a></li>
-                    <li><a href="helpers/emails/">Emails</a></li>
-                    <li><a href="helpers/files/">Files</a></li>
-                    <li><a href="helpers/strings/">Strings</a></li>
-                    <li><a href="helpers/functions/">Funciones</a></li>
+                    <li><a class="{{ controller == 'helpers' and method == null ? 'active' : '' }}" href="helpers">Uso y Creación</a></li>
+                    <li><a class="{{ method == 'arrays' ? 'active' : '' }}" href="helpers/arrays">Arrays</a></li>
+                    <li><a class="{{ method == 'emails' ? 'active' : '' }}" href="helpers/emails">Emails</a></li>
+                    <li><a class="{{ method == 'files' ? 'active' : '' }}" href="helpers/files">Files</a></li>
+                    <li><a class="{{ method == 'strings' ? 'active' : '' }}" href="helpers/strings">Strings</a></li>
+                    <li><a class="{{ method == 'functions' ? 'active' : '' }}" href="helpers/functions">Funciones</a></li>
                 </ul>
             </li>
-            <li class="menu-plegable">
+            <li class="menu-plegable {{ controller == 'modelos' or method in ['dbmodel'] ? 'plegado' : '' }}">
                 <a href="javascript:void(0)">Modelos</a>
                 <ul>
-                    <li><a href="modelos/">Uso y Creación</a></li>
-                    <li><a href="modelos/caracteristicas/database/">Bases de Datos</a></li>
+                    <li><a class="{{ controller == 'modelos' and method == null ? 'active' : '' }}" href="modelos">Uso y Creación</a></li>
+                    <li><a class="{{ method == 'dbmodel' ? 'active' : '' }}" href="modelos/dbmodel">Característica DBModel</a></li>
                 </ul>
             </li> 
-            <li><a href="debug/">Depurador / Debug</a></li>
-            <li><a href="rest/">API Rest</a></li>
-            <li><a href="generador/">Generador</a></li>
+            <li><a class="{{ controller == 'database' ? 'active' : '' }}" href="database">Bases de Datos</a></li>
+            <li><a class="{{ controller == 'debug' ? 'active' : '' }}" href="debug">Depurador</a></li>
+            <li><a class="{{ controller == 'rest' ? 'active' : '' }}" href="rest">API RESTFULL</a></li>
+            <li><a class="{{ controller == 'generador' ? 'active' : '' }}" href="generador">Generador</a></li>
         </ul>
     </nav>
 </aside>

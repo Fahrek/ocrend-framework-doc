@@ -26,6 +26,9 @@ class errorController extends Controllers implements IControllers {
 
     public function __construct(IRouter $router) {
         parent::__construct($router);
-        $this->template->display('error/404');
+        $this->template->display('error/404',array(
+            'page_title' => 'Error 404',
+            'page_description' => 'Página no encontrada'
+        ));
     }
 }

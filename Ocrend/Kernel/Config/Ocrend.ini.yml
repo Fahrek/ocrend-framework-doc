@@ -38,7 +38,7 @@ twig:
 # Configuración del sitio
 build:
   production: true
-  name: Ocrend Framework 3 | 
+  name: Ocrend Framework 3 
   url: http://localhost/ocrend-framework-doc/
   timezone: America/Caracas
 

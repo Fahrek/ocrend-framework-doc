@@ -6,9 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="{{ page_description }}" />
     <link rel="stylesheet" href="assets/web/build/css/main.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" />
     <link rel="stylesheet" href="assets/web/build/css/syntax.min.css">    
+    <meta property="fb:app_id" content="218144408938147"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://framework.ocrend.com/{{controller}}{{ null != method ? '/' ~ method : '' }}"/>
+    <meta property="og:title" content="Ocrend Framework - {{ page_title }}"/>
+    <meta property="og:image" content="https://framework.ocrend.com/assets/web/build/img/fb_public.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:description" content="{{ page_description }}"/>
+    <meta property="og:locale" content="es_LA"/>
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:site" content="ocrendSoftware"/>
     <meta name="msapplication-square70x70logo" content="https://ocrend.com/assets/img/overall/msapplication-square70x70logo.png"/>
     <meta name="msapplication-square150x150logo" content="https://ocrend.com/assets/img/overall/msapplication-square150x150logo.png"/>
     <meta name="msapplication-square310x310logo" content="https://ocrend.com/assets/img/overall/msapplication-square310x310logo.png"/>
@@ -28,7 +41,7 @@
     {% block appHeader %}
     {% endblock %}
 
-    <title>{{ config.build.name }} {% block pageTitle %}{% endblock %}</title>
+    <title>{{ config.build.name }} | {{ page_title }}</title>
 </head>
 <body>
 

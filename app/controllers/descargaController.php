@@ -24,6 +24,9 @@ class descargaController extends Controllers implements IControllers {
 
     public function __construct(IRouter $router) {
         parent::__construct($router);
-        $this->template->display('descarga/descarga');
+        $this->template->display('descarga/descarga',array(
+            'page_title' => 'Descarga y Configuración',
+            'page_description' => 'Aprende a descargar y configurar en pocos segundos Ocrend Framework clonando desde el repositorio oficial'
+        ));
     }
 }

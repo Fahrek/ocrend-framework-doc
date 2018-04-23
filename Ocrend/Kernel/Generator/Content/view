@@ -1,5 +1,4 @@
 {% extends 'overall/layout' %}
-{% block pageTitle %}Título{% endblock %}
 {% block appBody %}
     <div class="contenedor">
         <main class="row">

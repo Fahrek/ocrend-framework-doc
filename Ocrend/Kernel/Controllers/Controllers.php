@@ -100,6 +100,10 @@ abstract class Controllers {
             # false para evitar el auto escape de html por defecto (no recomendado)
             'autoescape' => $config['twig']['autoescape']
         )); 
+
+        # Auxiliares
+        $this->method = $router->getMethod();
+        $this->isset_id = $router->getID(true);
         
         # Request global
         $this->template->addGlobal('get', $http->query->all());
@@ -109,6 +113,7 @@ abstract class Controllers {
         $this->template->addGlobal('config', $config);
         $this->template->addGlobal('is_logged', $this->is_logged);
         $this->template->addGlobal('controller', $router->getController());
+        $this->template->addGlobal('method', $this->method);
 
         # Datos del usuario actual
         if ($this->is_logged) {
@@ -126,10 +131,6 @@ abstract class Controllers {
 
         # Verificar para quién está permitido este controlador
         $this->knowVisitorPermissions();
-
-        # Auxiliares
-        $this->method = $router->getMethod();
-        $this->isset_id = $router->getID(true);
     }
 
     /**

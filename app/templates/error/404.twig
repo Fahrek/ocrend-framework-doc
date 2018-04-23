@@ -1,7 +1,17 @@
 {% extends 'overall/layout' %}
 {% block appBody %}
-    <div class="box-ocrend">
-        <h1>ERROR 404</h1>
-        <p>¡La página solicitada no ha sido encontrada!</p>
+    <div class="contenedor">
+        <main class="row">
+
+            {% include 'overall/menu' %}
+
+            <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
+                <h1>¡ERROR 404!</h1>
+                <p>¡No hemos encontrado la página solicitada!</p>     
+            </section>
+
+        </main>
     </div>
+
+    {% include 'overall/footer' %}
 {% endblock %}
