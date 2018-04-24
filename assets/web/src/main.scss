@@ -373,6 +373,10 @@ main {
                 vertical-align: middle;
             }
 
+            td.w-240 {
+                width: 240px;
+            }
+
             td.center:first-of-type {
                 text-align: center;
             }
@@ -460,6 +464,9 @@ footer {
 }
 .text-center {
     text-align: center;
+}
+.text-left {
+    text-align: left;
 }
 .contenedor {
     margin: 0 auto;

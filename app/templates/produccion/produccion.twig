@@ -1,0 +1,39 @@
+{% extends 'overall/layout' %}
+{% block appBody %}
+    <div class="contenedor">
+        <main class="row">
+
+            {% include 'overall/menu' %}
+
+            <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
+                <h1>Modo de desarrollo y producción</h1> 
+                <p>El framework tiene dos entornos de funcionamiento que se activan en <span>./Ocrend/Kernel/Config/Ocrend.ini.yml</span> a través de <span>build/production</span></p>
+                
+                <h2>Modo de desarrollo</h2>      
+                <p>El modo de desarrollo viene activado por defecto recién se descarga el Framework, estará activo cuando la propiedad <span>build/production</span> esté en <span>false</span>.</p>
+                <p>Este modo de desarrollo se aprecia a simple vista al ver una barra inferior de color azul, cuyo centro es el logotipo de Ocrend Framework</p>
+                <ul>
+                    <li>En la parte izquierda de la barra, en cada controlador que se ejecute mostrará el tiempo de carga.</li>
+                    <li>La parte derecha de la barra siempre tendrá la última petición / respuesta realizada dentro del framework vía <strong>ajax</strong>, éstas son interceptadas por el framework.</p>
+                </ul>
+                <p>Además de la barra azul, si se accede a la consola de javascript del navegador con <b>F12</b>, se verá un mensaje que indica que el debug está activo, aquí veremos interceptadas todas las peticiones o respuestas que se realizan a través de ajax indiferentemente del medio que se utilice para realizarlas.</p>
+                <p>Otro punto importante es que al estar el modo de desarrollo activo, <strong>cualquier error interno</strong> ofrecerá un backtrace con una depuración del error que ha ocurrido, si el error interno se produce a través de ajax (en el lado del servidor), se abrirá una nueva pestaña mostrando el backtrace del error.</p>
+                
+                <h2>Modo de producción</h2>
+                <p>El modo de producción estará activo cuando la propiedad <span>build/production</span> esté en <span>true</span>.</p>
+                <p>El modo producción <strong>deshabilita</strong> toda posibilidad de depurar errores, de esta manera encapsula cualquier posible error interno al usuario final, ningún error será mostrado en pantalla.</p>
+                <p>Cuando el error se produce a través de ajax (desde el lado del servidor), la respuesta que recibe el usuario final es un texto que indica que ha ocurrido un error interno, y si se inspecciona la red o se accede directamente a la api, la respuesta será un json:</p>
+                <pre class="json"><code>
+{
+    success : 0,
+    message : 'Ha ocurrido un problema interno'
+}
+                </code></pre>
+                <p>Cuando el error no se produce a través de la api, en vez de mostrar un pantalla blanca con error / backtrace del error, se muestra una <strong>página personalizada de error 500</strong>, dicha página puede ser editada en <span>./assets/error/catch.html</span></p>
+            </section>
+
+        </main>
+    </div>
+
+    {% include 'overall/footer' %}
+{% endblock %}
