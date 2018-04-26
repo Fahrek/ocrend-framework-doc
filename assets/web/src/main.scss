@@ -316,7 +316,7 @@ main {
             }
         }
 
-        p,h1,h2,h3,h4,h5,h6,td {
+        p,h1,h2,h3,h4,h5,h6,td,li {
             span {
                 margin: 0;
                 display: inline;
@@ -341,6 +341,14 @@ main {
             padding-bottom: 15px;
             margin-bottom: 15px;
             margin-top: 40px;
+            border-bottom: 1px solid rgba(3, 27, 78, 0.1);
+        }
+
+        h3 {
+            font-size: 20px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            margin-top: 20px;
             border-bottom: 1px solid rgba(3, 27, 78, 0.1);
         }
 
@@ -391,6 +399,13 @@ main {
                     margin: 0 auto;
                 }
             }
+        }
+
+        img.responsive {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            height: auto;
         }
     }
 
@@ -503,5 +518,11 @@ footer {
 .row {
     // reseteo de flexbod grid
     margin: 0!important;
+}
+.m-t-10 {
+    margin-top: 10px;
+}
+.m-t-20 {
+    margin-top: 20px;
 }
 @import 'https://fonts.googleapis.com/css?family=Lato:400,700';

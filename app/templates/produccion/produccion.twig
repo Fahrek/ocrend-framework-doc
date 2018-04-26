@@ -23,7 +23,7 @@
                 <p>El modo de producción estará activo cuando la propiedad <span>build/production</span> esté en <span>true</span>.</p>
                 <p>El modo producción <strong>deshabilita</strong> toda posibilidad de depurar errores, de esta manera encapsula cualquier posible error interno al usuario final, ningún error será mostrado en pantalla.</p>
                 <p>Cuando el error se produce a través de ajax (desde el lado del servidor), la respuesta que recibe el usuario final es un texto que indica que ha ocurrido un error interno, y si se inspecciona la red o se accede directamente a la api, la respuesta será un json:</p>
-                <pre class="json"><code>
+                <pre class="javascript"><code>
 {
     success : 0,
     message : 'Ha ocurrido un problema interno'

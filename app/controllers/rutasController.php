@@ -18,15 +18,15 @@ use Ocrend\Kernel\Controllers\IControllers;
 use Ocrend\Kernel\Router\IRouter;
 
 /**
- * Controlador produccion/
+ * Controlador rutas/
 */
-class produccionController extends Controllers implements IControllers {
+class rutasController extends Controllers implements IControllers {
 
     public function __construct(IRouter $router) {
         parent::__construct($router);
-        $this->template->display('produccion/produccion',array(
-            'page_title' => 'Modo de desarrollo y producción',
-            'page_description' => 'El framework ofrece un entorno de desarrollo y a su vez encapsula cualquier posible error en un entorno de producción.'
+        $this->template->display('rutas/rutas',array(
+            'page_title' => 'Url\'s amigables en php',
+            'page_description' => 'Las rutas son la solución para las URL\'s Amigables que ofrece Ocrend Framework.'
         ));
     }
 }

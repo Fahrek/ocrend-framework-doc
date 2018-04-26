@@ -18,15 +18,15 @@ use Ocrend\Kernel\Controllers\IControllers;
 use Ocrend\Kernel\Router\IRouter;
 
 /**
- * Controlador produccion/
+ * Controlador vistas/
 */
-class produccionController extends Controllers implements IControllers {
+class vistasController extends Controllers implements IControllers {
 
     public function __construct(IRouter $router) {
         parent::__construct($router);
-        $this->template->display('produccion/produccion',array(
-            'page_title' => 'Modo de desarrollo y producción',
-            'page_description' => 'El framework ofrece un entorno de desarrollo y a su vez encapsula cualquier posible error en un entorno de producción.'
+        $this->template->display('vistas/vistas',array(
+            'page_title' => 'Vistas en twig',
+            'page_description' => 'Las vistas son la parte no lógica de la aplicación, todo lo referente con la maquetación web, el frontend de la aplicación.'
         ));
     }
 }

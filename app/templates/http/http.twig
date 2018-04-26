@@ -1,0 +1,235 @@
+{% extends 'overall/layout' %}
+{% block appBody %}
+    <div class="contenedor">
+        <main class="row">
+
+            {% include 'overall/menu' %}
+
+            <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
+                <h1>Peticiones HTTP con HTTPFoundation</h1>
+                <p>El componente HTTPFoundation de Symfony define una capa orientad a objetos para las especificaciones HTTP, en PHP las solicitudes HTTP están representadas por algunas variables globales (<span>$_GET</span>, <span>$_POST</span>,<span>$_FILES</span>, <span>$_COOKIE</span>, <span>$_SESSION</span>,...) y la respuesta es generada por algunas funciones como (<span>echo</span>, <span>header</span>, <span>setcookie</span>, ...)</p>   
+                <p>Éste componente reemplaza todas las variables y funciones globales PHP para manipular las especificaciones HTTP predeterminadas por una capa orientada a objetos, se recomienda encarecidamente utilizar HTTPFoundation en vez de las definiciones por defecto de PHP a la hora de trabajar con peticiones HTTP.</p>
+
+                <h2>Objeto <span>$http</span></h2>
+                <p>El objeto <span>$http</span> es definido en <span>Ocrend/Kernel/Config/Config.php</span>,	representa un contenedor para las peticiones <span>$_GET</span>, <span>$_POST</span>, <span>$_FILES</span> y <span>$_SERVER</span></p>
+                <p>La forma correcta de acceder a él, desde cualquier controlador o modelo es haciendo una llamada global dentro del método que lo necesite.</p>
+                <pre class="php"><code>global $http;</code></pre>
+
+                <h2>Accediendo a las solicitudes</h2>
+                <p>Tablas de equivalencias.</p>
+
+                {# GET #}
+                <table>
+						<thead>
+							<tr>
+								<th>PHP</th>
+								<th>Equivalente HTTPFoundation</th>
+							</tr>
+						</thead>
+						<tbody>
+                            <tr>
+								<td class="w-240"><span>$_GET</span></td>
+								<td><span>$http-&gt;query-&gt;all()</span> devuelve <span>array</span> con toda la información enviada por GET</td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>$_GET['elemento']</span></td>
+								<td><span>$http-&gt;query-&gt;get('elemento')</span> devuelve <span>NULL</span> si no existe 'elemento'</td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>$_GET['elemento'] = 'Nuevo Valor'</span></td>
+								<td><span>$http-&gt;query-&gt;set('elemento','Nuevo Valor')</span></td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>unset($_GET['elemento])</span></td>
+								<td><span>$http-&gt;query-&gt;remove('elemento')</span></td>
+							</tr>							
+						</tbody>
+				</table>
+
+                {# POST #}
+                <table class="m-t-20">
+						<thead>
+							<tr>
+								<th>PHP</th>
+								<th>Equivalente HTTPFoundation</th>
+							</tr>
+						</thead>
+						<tbody>
+                            <tr>
+								<td class="w-240"><span>$_POST</span></td>
+								<td><span>$http-&gt;request-&gt;all()</span> devuelve <span>array</span> con toda la información enviada por POST</td>
+							</tr>
+                            <tr>
+								<td class="w-240"><span>$_POST['elemento']</span></td>
+								<td><span>$http-&gt;request-&gt;get('elemento')</span> devuelve <span>NULL</span> si no existe 'elemento'</td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>$_POST['elemento'] = 'Nuevo Valor'</span></td>
+								<td><span>$http-&gt;request-&gt;set('elemento','Nuevo Valor')</span></td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>unset($_POST['elemento])</span></td>
+								<td><span>$http-&gt;request-&gt;remove('elemento')</span></td>
+							</tr>
+                        </tbody>
+				</table>
+
+
+                {# SERVER #}
+                <table class="m-t-20">
+						<thead>
+							<tr>
+								<th>PHP</th>
+								<th>Equivalente HTTPFoundation</th>
+							</tr>
+						</thead>
+						<tbody>
+                            <tr>
+								<td class="w-240"><span>$_SERVER</span></td>
+								<td><span>$http-&gt;server-&gt;all()</span> devuelve <span>array</span> con todos los inidices posibles de $_SERVER</td>
+							</tr>
+                            <tr>
+								<td class="w-240"><span>$_SERVER['SERVER_NAME']</span></td>
+								<td><span>$http-&gt;server-&gt;get('SERVER_NAME')</span></td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>$_SERVER['HTTP_CONTENT_TYPE']</span></td>
+								<td><span>$http-&gt;headers-&gt;get('Content-Type')</span></td>
+							</tr>
+                        </tbody>
+				</table>
+
+                {# FILES #}
+                <table class="m-t-20">
+						<thead>
+							<tr>
+								<th>PHP</th>
+								<th>Equivalente HTTPFoundation</th>
+							</tr>
+						</thead>
+						<tbody>
+                            <tr>
+								<td class="w-240"><span>$_FILES</span></td>
+								<td><span>$http-&gt;files-&gt;all()</span> devuelve <span>array</span> con todos los archivos subidos</td>
+							</tr>
+                            <tr>
+								<td class="w-240"><span>$file = $_FILES['archivo']</span></td>
+								<td><span>$file = $http-&gt;files-&gt;get('archivo')</span> devuelve <span>NULL</span> si no se ha subido 'archivo'</td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>$file['size']</span></td>
+								<td><span>$file-&gt;getClientSize()</span></td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>$file['name']</span></td>
+								<td><span>$file-&gt;getClientOriginalName()</span></td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>end(explode('.', $file['name']))</span> extensión del archivo</td>
+								<td><span>$file-&gt;getClientOriginalExtension()</span></td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>move_uploaded_file(...)</span> guardar archivo</td>
+								<td><span>$file-&gt;move('ruta/', $file-&gt;getClientOriginalName());</span></td>
+							</tr>
+                        </tbody>
+				</table>
+
+                <h2>Objeto <span>$session</span></h2>
+                <p>El objeto <span>$session</span> es definido en <span>Ocrend/Kernel/Config/Config.php</span>, representa un objeto para manejar todas las sesiones dentro del sistema.</p>
+                <p>La forma correcta de acceder a ellas, desde cualquier controlador o modelo es haciendo una llamada global dentro del método que lo necesite.</p>
+                <pre class="php"><code>global $session;</code></pre>
+                <p><span>NOTA:</span> el tiempo de vida de las sesiones depende del parámetro <span>sessions/life_time</span> en <span>Ocrend.ini.yml</span></p>
+                <p><span>NOTA 2:</span> el tiempo de vida de la sesión de un usuario será igual al de todas las sesiones, excepto cuando la modalidad de sesión por cookie encriptada esté activa, dicha funcionalidad viene activa por defecto.</p>
+
+                <h3>Accediendo a las sesiones</h3>
+                <p>Se presenta una tabla de equivalencias.</p>
+                <table>
+						<thead>
+							<tr>
+								<th>PHP</th>
+								<th>Equivalente HTTPFoundation</th>
+							</tr>
+						</thead>
+						<tbody>
+                            <tr>
+								<td class="w-240"><span>$_SESSION</span></td>
+								<td class="w-240"><span>$session-&gt;all()</span> devuelve <span>array</span> con todas las sesiones</td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>$_SESSION['elemento']</span></td>
+								<td class="w-240"><span>$session-&gt;get('elemento')</span> devuelve <span>NULL</span> si no existe 'elemento'</td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>$_SESSION['elemento'] = 'Nuevo Valor'</span></td>
+								<td><span>$session-&gt;set('elemento','Nuevo Valor')</span></td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>unset($_SESSION['elemento'])</span></td>
+								<td><span>$session-&gt;remove('elemento')</span></td>
+							</tr>
+						</tbody>
+				</table>
+
+                <h2>Objeto <span>$cookie</span></h2>
+                <p>El objeto <span>$cookie</span> es definido en <span>Ocrend/Kernel/Config/Config.php</span>, representa un objeto para manejar todas las cookies dentro del sistema.</p>
+                <p>La forma correcta de acceder a ellas, desde cualquier controlador o modelo es haciendo una llamada global dentro del método que lo necesite.</p>
+                <pre class="php"><code>global $cookie;</code></pre>
+
+                <h3>Accediendo a las cookies</h3>
+                <p>Se presenta una tabla de equivalencias.</p>
+                <table>
+						<thead>
+							<tr>
+								<th>PHP</th>
+								<th>Equivalente Ocrend Framework</th>
+							</tr>
+						</thead>
+						<tbody>
+                            <tr>
+								<td class="w-240"><span>$_COOKIE</span></td>
+								<td class="w-240"><span>$cookie-&gt;all()</span> devuelve un <span>array</span> con todas las cookies</td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>$_COOKIE['elemento']</span></td>
+								<td class="w-240"><span>$cookie-&gt;get('elemento')</span> devuelve <span>NULL</span> si no existe 'elemento'</td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>setcookie('elemento', 'Valor', time() + 3600, '/')</span></td>
+								<td>
+                                    <span>$cookie-&gt;set('elemento','Nuevo Valor',3600)</span>
+                                    <ul>
+                                        <li>El tercer parámetro corresponde al <b>tiempo de vida</b> de la cookie.</li>
+                                        <li>El cuarto parámetro es opcional, por defecto corresponde al path "/", si se desea especificar otro sólamente se debe indicar</li>
+                                    </ul>
+                                </td>
+							</tr>
+							<tr>
+								<td class="w-240"><span>unset($_COOKIE['elemento'])</span></td>
+								<td><span>$cookie-&gt;remove('elemento')</span></td>
+							</tr>
+						</tbody>
+				</table>
+
+                <h3>Sesión de usuario por cookie encriptada</h3>
+                <p>Por defecto, en <span>sessions/user_cookie/enable</span> en <span>Ocrend.ini.yml</span> viene activado éste sistema de sesiones de usuarios con cookie encriptada, al colocar dicho parámetro en false se deshabilita esa modalidad de sesiones.</p>
+                <p>Ésta modalidad consiste en hacer funcionar dos cookies, una encriptada sobre la otra que contienen información relativa para permitir que la <b>sesión interna</b> que mantiene al usuario conectado, perdure más en el tiempo y sea indpendiente al tiempo de vida de las sesiones en general dentro del sistema.</p> 
+                <p>Con ésta modalidad <b>no hay ningún tipo de cambio</b> con respecto a la forma en la que manejamos la sesión actual de un usuario, y las cookies encriptadas públicas no tienen ningún tipo de información posible sobre el usuario que pueda estar conectado.</p>
+                <ul>
+                    <li>El tiempo de vida en segundos, de la sesión del usuario en esta modalidad puede ser editado en <span>sessions/user_cookie/lifetime</span></li>
+                    <li>Existe una clave <b>PRIVADA</b>, que no debe ser expuesta de ninguna manera al usuario que visita la web, ubicada en <span>sessions/user_cookie/key_encrypt</span>, dicha clave es utilizada para encriptar/desencriptar la información de una de las cookies persistentes, sin ésta clave no es posible desencriptar la cookie por tanto el sistema no sabrá qué usuario pueda estar conectado, se recomienda cambiar la clave por una diferente a la que viene por defecto, con mínimo 20 caracteres de longitud.</li>
+                </ul>
+
+                <h2>Más información acerca de HTTPFoundation</h2>
+                <p>En las siguientes páginas existe más información detallada acerca del componente HTTPFoundation de Symfony</p>
+                <ul>
+                    <li><strong>Http:</strong> <a href="https://symfony.com/doc/current/components/http_foundation.html" target="_blank">https://symfony.com/doc/current/components/http_foundation.html</a></li>
+                    <li><strong>Sesiones:</strong> <a href="https://symfony.com/doc/current/components/http_foundation/sessions.html" target="_blank">https://symfony.com/doc/current/components/http_foundation/sessions.html</a></li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    {% include 'overall/footer' %}
+{% endblock %}
