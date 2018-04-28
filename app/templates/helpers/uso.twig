@@ -1,0 +1,91 @@
+{% extends 'overall/layout' %}
+{% block appBody %}
+    <div class="contenedor">
+        <main class="row">
+
+            {% include 'overall/menu' %}
+
+            <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
+                <h1>Helpers</h1>
+                <p>Un helper es una colección de funciones en una categoría particular, como su nombre lo indica, están destinados a ofrecer ayuda para resolver problemas pequeños.</p>       
+                <p>Todos los Helpers están dentro del namespace <span>Ocrend/Kernel/Helpers</span> y aquellos que pueden ser utilizados dentro de las plantillas TWIG son herencias directas de <span>Twig_Extension</span></p>
+            
+                <h2>Cómo cargar un helper para usarlo</h2>
+                <p>Para llamar a un Helper, sólo basta con añadir el namespace en la cabecera de nuestra clase y luego invocar sus métodos estáticos.</p>
+<pre class="php"><code>
+use Ocrend\Kernel\Helpers\MiHelper;
+...
+class ... {
+    function metodo() {
+        MiHelper::la_funcion('parámetros');
+    }
+}
+</code></pre>
+            <p>Si queremos que nuestro Helper esté disponible en la vista del controlador que la está llamando, debemos añadir la extensión al template <b>antes de renderizarlo</b></p>
+            <pre class="php"><code>$this->template->addExtension(new MiHelper);</code></pre>
+
+            <p>Desde nuestra plantilla twig, solo bastará con hacer el llamado de las funciones</p>
+            <pre class="php"><code>{{ "{{ mi_funcion('parámetros') }}" }}</code></pre>
+            <p><span>NOTA:</span> para que el helper pueda funcionar correctamente, éste debe ser compatible con Twig, la forma de revisar ello es viendo si éste hereda de <span>Twig_Extension</span></p>
+
+            <h2>Cómo añadir una función a un helper</h2>
+            <p>Procedemos a editar el Helper, la ubicación sería <strong>./Ocrend/Kernel/Helpers/</strong> abrimos el archivo y creamos la función:</p>
+<pre class="php"><code>
+/**
+  * ¿Qué hace?
+  *
+  * @param tipo_de_dato $nombre_de_parametro: ¿para qué se pasa este parámetro?
+  *
+  * @return tipo_de_dato ¿qué es ese dato que retorna? (si no retorna nada basta poner void)
+*/
+
+#( si no devuelve nada, o más de un tipo de dato no colocar nada en 'tipo_dato_devuelto' )
+
+final public static function mi_funcion(tipo_de_dato $parametro) : tipo_dato_devuelto {
+  #... todo el código
+}
+</code></pre>
+
+            <p>En caso de que el helper sea compatible con Twig, y se quiere que la función esté disponible en las plantillas, se debe proceder a editar el método <span>getFunctions()</span> añadiendo un elemento más al arreglo:</p>
+
+<pre class="php"><code>
+public function getFunctions() : array {
+    return array(
+        #nombre_de_la_funcion_en_twig es el nombre que usaremos desde twig para llamar a la función.
+        #mi_funcion es el nombre de la función que cree en el helper, que será ejecutada cuando se llame desde twig a 'nombre_de_la_funcion_en_twig'
+        new \Twig_Function('nombre_de_la_funcion_en_twig',array($this,'mi_funcion'))
+    );
+}
+</code></pre>
+
+            <h2>Cómo crear un helper</h2>
+            <p>Es importante no salirse del contexto, los helpers son bibliotecas de funciones con una categoría, si se crea un helper llamado XML por ejemplo, se da a entender que lo único que contendrá ese helper, es funciones encargadas de algún manejo relacionado con XML.</p>
+            <p>Para crear un helper llamado <b>Ejemplo</b>, procedemos a crear un fichero en <strong>./Ocrend/Kernel/Helpers/Ejemplo.php</strong> el cual estará disponible en plantillas Twig.</p>
+<pre class="php"><code>
+namespace Ocrend\Kernel\Helpers;
+
+final class Ejemplo extends \Twig_Extension {	
+
+	# Listado de funciones del helper
+
+	public function getFunctions() : array {
+		return array(
+			...
+			new \Twig_Function('funcion_en_twig',array($this,'mi_funcion'))
+			...
+		);
+	}	
+
+	public function getName() : string {
+            return 'ocrend_framework_helper_ejemplo';
+        }
+
+}    
+</code></pre>        
+            </section>
+
+        </main>
+    </div>
+
+    {% include 'overall/footer' %}
+{% endblock %}
