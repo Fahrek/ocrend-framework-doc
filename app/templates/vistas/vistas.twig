@@ -8,7 +8,8 @@
             <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
                 <h1>Vistas</h1>
                 <p>Las vistas son la parte no lógica de la aplicación, todo lo referente con la maquetación web, el frontend de la aplicación. La ubicación de las vistas está en <span>./app/templates/</span> y para mantener cierta coherencia y orden, es recomendable que cada vista esté almacenada en una carpeta con el nombre del controlador principal que la llama.</p>
-                <table>
+                <div class="responsive-box">
+                    <table>
 						<thead>
 							<tr>
 								<th>Ruta</th>
@@ -29,7 +30,9 @@
 								<td>Capa principal, que contiene todos los elementos reutilizables como plantilla del diseño web. Todas las vistas, por lo general heredan de ésta vista, <span>en cualquier momento puede ser reemplazada, inclusve el nombre o el archivo completo</span> ya que la estructura de las vistas es 100% libre.</td>
 							</tr>
 						</tbody>
-				</table>
+				    </table>
+                </div>
+
                 <p>Ocrend Framework implementa <a href="https://twig.symfony.com/" target="_blank">TWIG</a> como motor de plantillas, su sintaxis origina de Jinja y las plantillas Django.</p>
             
                 <h2>Algunas características</h2>
@@ -164,7 +167,8 @@ $this->template->display('mi_vista/mi_vista', array(
 
                 <h2>Acceder a variables globales</h2>
                 <p>Por defecto, Ocrend Framework brinda la posibilidad de obtener información de las siguientes variables globales desde las plantillas:</p>
-                <table>
+                <div class="responsive-box">    
+                    <table>
 						<thead>
 							<tr>
 								<th>PHP</th>
@@ -197,7 +201,8 @@ $this->template->display('mi_vista/mi_vista', array(
 								<td><span>{{ "{{ owner_user.propiedad }}" }}</span> atributo del usuario conectado</td>
 							</tr>
 						</tbody>
-				</table>
+				    </table>
+                </div>
 
                 <h2>Añadir variables de forma global</h2> 
                 <p>Para añadir variables de forma global a todas las vistas existentes en la aplicación debemos proceder en <span>./Ocrend/Kernel/Controllers/Controllers.php</span> y en el grupo comentado como "# Request global" añadir:</p>

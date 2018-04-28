@@ -46,14 +46,14 @@ class helpersController extends Controllers implements IControllers {
             break;
             case 'strings':
                 $this->template->display('helpers/strings',array(
-                    'page_title' => '',
-                    'page_description' => ''
+                    'page_title' => 'Helper Strings',
+                    'page_description' => 'Helper con funciones útiles para tratar strings.'
                 ));
             break;
             case 'functions':
                 $this->template->display('helpers/functions',array(
-                    'page_title' => '',
-                    'page_description' => ''
+                    'page_title' => 'Helper Functions',
+                    'page_description' => 'Funciones reutilizables dentro del sistema, sin categoría definida.'
                 ));
             break;
             default:

@@ -6,7 +6,172 @@
             {% include 'overall/menu' %}
 
             <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
-                4
+                <h1>Helper Functions</h1>
+                <p>Funciones reutilizables dentro del sistema, sin categoría definida.</p>
+                <pre class="php"><code>use Ocrend\Kernel\Helpers\Functions</code></pre>
+
+                <h2>La clase <span>Functions</span></h2>
+                <p>Detalle de métodos, con parámetros y respuestas.</p>
+
+                <div class="responsive-box">
+                    <table>
+						<thead>
+							<tr>
+								<th>PHP</th>
+								<th>TWIG</th>
+								<th>Funcionalidad</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="nowarp"><span>Functions::redir()</span></td>
+								<td class="nowarp text-center">--</td>
+								<td>
+									<p>Redirecciona a una URL</p>
+                                    <ul>
+                                        <li><span>$url = null</span> Sitio a donde redireccionará, si no se pasa, por defecto se redirecciona a la URL principal del sitio</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp"><span>Functions::percent()</span> : float</td>
+								<td class="nowarp">{{ "{{ percent() }}" }}</td>
+								<td>
+									<p>Calcula el porcentaje de una cantidad.</p>
+									<ul>
+                                        <li><span>float $por</span> El porcentaje a evaluar, por ejemplo 1, 20, 30 % sin el "%", sólamente el número</li>
+									    <li><span>float $n</span> El número al cual se le quiere sacar el porcentaje</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp"><span>Functions::convert()</span> : string</td>
+								<td class="nowarp">{{ "{{ convert() }}" }}</td>
+								<td>
+									<p>Da unidades de peso a un integer según sea su tamaño asumida en bytes.</p>
+									<ul>
+                                        <li><span>int $size</span> Un entero que representa el tamaño a convertir</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp"><span>Functions::get_gravatar()</span> : string</td>
+								<td class="nowarp">{{ "{{ get_gravatar() }}" }}</td>
+								<td>
+									<p>Retorna la URL de un gravatar, según el email.</p>
+									<ul>
+                                        <li><span>string $email</span> El email del usuario a extraer el gravatar</li>
+									    <li><span>int $size</span> El tamaño en px del gravatar</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp"><span>Functions::emp()</span> : bool</td>
+								<td class="nowarp">{{ "{{ emp() }}" }}</td>
+								<td>
+									<p>Alias de Empty, más completo, devuelve <span>true</span> si está vacío, <span>false</span> si no, un espacio en blanco cuenta como vacío.</p>
+									<ul>
+                                        <li><span>mixed $var</span> El email del usuario a extraer el gravatar</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp"><span>Functions::all_full()</span> : bool</td>
+								<td class="nowarp">{{ "{{ all_full() }}" }}</td>
+								<td>
+									<p>Analiza que TODOS los elementos de un arreglo estén llenos.</p>
+									<ul>
+                                        <li><span>array $array</span> Arreglo a analizar</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp"><span>Functions::e()</span> : bool</td>
+								<td class="nowarp">{{ "{{ e() }}" }}</td>
+								<td>
+									<p>Alias de Empty() pero soporta más de un parámetro, devuelve <span>true</span> si al menos uno está vacío, <span>false</span> si todos están llenos.</p>
+									<ul>
+                                        <li><span>Infinitos parámetros a evaluar</span></li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp"><span>Functions::fecha()</span> : string</td>
+								<td class="nowarp">{{ "{{ fecha() }}" }}</td>
+								<td>
+									<p>Alias de date() pero devuele días y meses en español.</p>
+									<ul>
+                                        <li><span>string $format</span> Formato de salida (igual que en date())</li>
+									    <li><span>int $time = 0</span> Tiempo, por defecto es time() (igual que en date())</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp"><span>Functions::base_assets()</span> : string</td>
+								<td class="nowarp">{{ "{{ base_assets()|raw }}" }}</td>
+								<td>
+									<p>Devuelve la etiqueta <span>base</span> html adecuada para que los assets carguen desde allí.</p>
+									<p>Se adapta a la configuración del dominio en general.</p>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp"><span>Functions::last_day_month()</span> : int</td>
+								<td class="nowarp">{{ "{{ last_day_month() }}" }}</td>
+								<td>
+									<p>Obtiene el último día de un mes específico.</p>
+									<ul>
+                                        <li><span>int $mes</span> Mes (1 a 12)</li>
+									    <li><span>int $anio</span>  Año (1970 a 2xxx)</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp"><span>Functions::cero_izq()</span> : string</td>
+								<td class="nowarp">{{ "{{ cero_izq() }}" }}</td>
+								<td>
+									<p>Pone un cero a la izquierda si la cifra es menor a diez.</p>
+									<ul>
+                                        <li><span>int $num</span> Cifra</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp"><span>Functions::str_to_time()</span> : int|null</td>
+								<td class="nowarp">{{ "{{ str_to_time() }}" }}</td>
+								<td>
+									<p>Devuelve el timestamp de una fecha, y null si su formato es incorrecto.</p>
+									<ul>
+                                        <li><span>string|null $fecha</span> Fecha con formato dd/mm/yy</li>
+									    <li><span>string $hora = '00:00:00'</span> Hora de inicio (24 hrs)</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp"><span>Functions::desde_date()</span> : string</td>
+								<td class="nowarp">{{ "{{ str_to_time() }}" }}</td>
+								<td>
+									<p>Devuelve la fecha en format dd/mm/yyy desde el principio de la semana, mes o año actual.</p>
+									<ul>
+                                        <li><p><span>int $desde</span> Desde donde</p>
+                                            <ul>
+                                                <li><span>1</span> Hoy</li>
+                                                <li><span>2</span> Ayer</li>
+                                                <li><span>3</span> Semana</li>
+                                                <li><span>4</span> Mes</li>
+                                                <li><span>5</span> Año</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp"><span>Functions::timestamp()</span> : int</td>
+								<td class="nowarp">{{ "{{ timestamp() }}" }}</td>
+								<td><p>Alias de <span>time()</span></p></td>
+							</tr>		
+						</tbody>
+					</table>
+                </div>
             </section>
 
         </main>

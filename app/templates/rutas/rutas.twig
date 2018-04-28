@@ -12,72 +12,74 @@
 
                 <h2>La clase <span>Router</span></h2>
                 <p>Es una clase que implementa la interfaz <span>Ocrend/Kernel/Router/IRouter</span>, se encarga de leer la información de la URL y es la responsable de elegir los controladores a ejecutar.</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Método / Atributo</th>
-                            <th>Función</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="responsive-box">
+					<table>
+						<thead>
 							<tr>
-								<td class="w-240">const <span>RULES</span></td>
-								<td>
-									<p>Arreglo que tiene definidas las reglas.</p>   
-									<ul>
-										<li><span>none</span> Ninguna regla</li>
-										<li><span>letters</span> Sólamente letras</li>
-										<li><span>alphanumeric</span> Sólamente letras y números</li>
-										<li><span>url</span> Sólamente letras, números y el caracter "-"</li>
-										<li><span>integer</span> Sólamente números enteros</li>
-										<li><span>integer_positive</span> Solamente números enteros positivos</li>
-										<li><span>float</span> Sólamente números flotantes</li>
-										<li><span>float_positive</span> Sólamente números flotantes positivos</li>
-									</ul>
-								</td>
+								<th>Método / Atributo</th>
+								<th>Función</th>
 							</tr>
-							<tr>
-								<td class="w-240">public <span>__construct()</span></td>
-								<td>Constructor de la clase.</td>
-							</tr>
-							<tr>
-								<td class="w-240">public <span>setRoute()</span></td>
-								<td><p>Crea una nueva ruta, el orden de creación de una ruta afectará la forma en la que se obtiene desde la URL. Por ejemplo si creamos la ruta <b>/ejemplo</b>, y después la ruta <b>/ejemplo_2</b> para poder obtener la segunda ruta, la URL debe tener la forma <i>controlador/metodo/id/ruta 1/aqui la segunda ruta</i></p>
-                                    <ul>
-                                        <li><span>string $index</span> nombre identificador que se le define a la ruta.</li>
-                                        <li><span>string $rule = 'none'</span> regla a ocupar para filtrar el valor de la ruta, los valores son aquellos existentes en <span>const RULES</span></li>
-                                    </ul>
-                                </td>
-							</tr>
-							<tr>
-								<td class="w-240">public <span>getRoute(): mixed</span></td>
-								<td><p>Obtiene el valor de una ruta según la regla que ha sido definida y si ésta existe. Si el contenido de la ruta no corresponde con la regla, devolverá <span>null</span>.</li>
-									<ul>
-                                        <li><span>string $index</span> nombre identificador que se le define a la ruta.</li>
-                                    </ul>
-								</td>
-							</tr>
-							<tr>
-								<td class="w-240">public <span>getController(): string</span></td>
-								<td>Obtiene el controlador que se solicita por la URL.</td>
-                            </tr>
-							<tr>
-								<td class="w-240">public <span>getMethod(): string|null</span></td>
-								<td>Obtiene el método que se solicita por la URL.</td></tr>
-							<tr>
-								<td class="w-240">public <span>getId(): string|int|null</span></td>
-								<td><p>Obtiene el id que se solicita por la URL.</p>
-                                    <ul>
-                                        <li><span>bool $with_rules = false</span> al establecerse en true, aplica la regla para que el contenido sea sólamente numérico mayor a cero.</li>
-                                    </ul>
-								</td>
-							</tr>
-							<tr>
-								<td class="w-240">public <span>executeController()</span></td>
-								<td>Identifica el controlador que debe ejecutarse.</td>
-                            </tr>
-                    </tbody>
-                </table>
+						</thead>
+						<tbody>
+								<tr>
+									<td class="w-240">const <span>RULES</span></td>
+									<td>
+										<p>Arreglo que tiene definidas las reglas.</p>   
+										<ul>
+											<li><span>none</span> Ninguna regla</li>
+											<li><span>letters</span> Sólamente letras</li>
+											<li><span>alphanumeric</span> Sólamente letras y números</li>
+											<li><span>url</span> Sólamente letras, números y el caracter "-"</li>
+											<li><span>integer</span> Sólamente números enteros</li>
+											<li><span>integer_positive</span> Solamente números enteros positivos</li>
+											<li><span>float</span> Sólamente números flotantes</li>
+											<li><span>float_positive</span> Sólamente números flotantes positivos</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td class="w-240">public <span>__construct()</span></td>
+									<td>Constructor de la clase.</td>
+								</tr>
+								<tr>
+									<td class="w-240">public <span>setRoute()</span></td>
+									<td><p>Crea una nueva ruta, el orden de creación de una ruta afectará la forma en la que se obtiene desde la URL. Por ejemplo si creamos la ruta <b>/ejemplo</b>, y después la ruta <b>/ejemplo_2</b> para poder obtener la segunda ruta, la URL debe tener la forma <i>controlador/metodo/id/ruta 1/aqui la segunda ruta</i></p>
+										<ul>
+											<li><span>string $index</span> nombre identificador que se le define a la ruta.</li>
+											<li><span>string $rule = 'none'</span> regla a ocupar para filtrar el valor de la ruta, los valores son aquellos existentes en <span>const RULES</span></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td class="w-240">public <span>getRoute(): mixed</span></td>
+									<td><p>Obtiene el valor de una ruta según la regla que ha sido definida y si ésta existe. Si el contenido de la ruta no corresponde con la regla, devolverá <span>null</span>.</li>
+										<ul>
+											<li><span>string $index</span> nombre identificador que se le define a la ruta.</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td class="w-240">public <span>getController(): string</span></td>
+									<td>Obtiene el controlador que se solicita por la URL.</td>
+								</tr>
+								<tr>
+									<td class="w-240">public <span>getMethod(): string|null</span></td>
+									<td>Obtiene el método que se solicita por la URL.</td></tr>
+								<tr>
+									<td class="w-240">public <span>getId(): string|int|null</span></td>
+									<td><p>Obtiene el id que se solicita por la URL.</p>
+										<ul>
+											<li><span>bool $with_rules = false</span> al establecerse en true, aplica la regla para que el contenido sea sólamente numérico mayor a cero.</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td class="w-240">public <span>executeController()</span></td>
+									<td>Identifica el controlador que debe ejecutarse.</td>
+								</tr>
+						</tbody>
+					</table>
+				</div>
 
                 <h2>Definir reglas nuevas</h2>
                 <p>Siempre podemos definir nuevas reglas a cualquier ruta, éstas reglas se definen una sóla vez y pueden ser utilizadas en cualquier ruta de cualquier controlador en toda la aplicación.</p>
@@ -101,36 +103,39 @@ public function nombre_de_mi_regla($ruta) {
 }
 </code></pre>
 
-			<h2>La interfaz <span>IRouter</span></h2>
-			<p>Si se desea reemplazar el router por uno nuevo, debe implementarse la siguiente interfaz para garantizar su correcta integración dentro del framework.</p>
-			<table>
-                    <thead>
-                        <tr>
-                            <th>Método necesario</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+				<h2>La interfaz <span>IRouter</span></h2>
+				<p>Si se desea reemplazar el router por uno nuevo, debe implementarse la siguiente interfaz para garantizar su correcta integración dentro del framework.</p>
+				<div class="responsive-box">	
+					<table>
+						<thead>
 							<tr>
-								<td>public <span>setRoute(string $index, string $rule)</span></td>
+								<th>Método necesario</th>
 							</tr>
-							<tr>
-								<td>public <span>getRoute(string $index)</span></td>
-							</tr>
-							<tr>
-								<td>public <span>getController()</span></td>
-							</tr>
-							<tr>
-								<td>public <span>getMethod()</span></td>
-							</tr>
-							<tr>
-								<td>public <span>getId(bool $with_rules)</span></td>
-							</tr>
-							<tr>
-								<td>public <span>executeController()</span></td>
-							</tr>
-                    </tbody>
-			</table>	
-            </section>
+						</thead>
+						<tbody>
+								<tr>
+									<td>public <span>setRoute(string $index, string $rule)</span></td>
+								</tr>
+								<tr>
+									<td>public <span>getRoute(string $index)</span></td>
+								</tr>
+								<tr>
+									<td>public <span>getController()</span></td>
+								</tr>
+								<tr>
+									<td>public <span>getMethod()</span></td>
+								</tr>
+								<tr>
+									<td>public <span>getId(bool $with_rules)</span></td>
+								</tr>
+								<tr>
+									<td>public <span>executeController()</span></td>
+								</tr>
+						</tbody>
+					</table>	
+				</div>
+
+			</section>
 
         </main>
     </div>

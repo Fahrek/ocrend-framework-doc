@@ -486,6 +486,10 @@ footer {
 .contenedor {
     margin: 0 auto;
 }
+.responsive-box {
+    width: 100%;
+    overflow-x: auto;
+}
 @media (max-width: 767px) {
     .contenedor {
         padding: 0 5px;

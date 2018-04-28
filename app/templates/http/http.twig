@@ -19,7 +19,8 @@
                 <p>Tablas de equivalencias.</p>
 
                 {# GET #}
-                <table>
+				<div class="responsive-box">
+                	<table>
 						<thead>
 							<tr>
 								<th>PHP</th>
@@ -44,10 +45,12 @@
 								<td><span>$http-&gt;query-&gt;remove('elemento')</span></td>
 							</tr>							
 						</tbody>
-				</table>
+					</table>
+				</div>
 
                 {# POST #}
-                <table class="m-t-20">
+				<div class="responsive-box">
+                	<table class="m-t-20">
 						<thead>
 							<tr>
 								<th>PHP</th>
@@ -72,11 +75,12 @@
 								<td><span>$http-&gt;request-&gt;remove('elemento')</span></td>
 							</tr>
                         </tbody>
-				</table>
-
+					</table>
+				</div>
 
                 {# SERVER #}
-                <table class="m-t-20">
+				<div class="responsive-box">
+                	<table class="m-t-20">
 						<thead>
 							<tr>
 								<th>PHP</th>
@@ -97,10 +101,12 @@
 								<td><span>$http-&gt;headers-&gt;get('Content-Type')</span></td>
 							</tr>
                         </tbody>
-				</table>
+					</table>
+				</div>
 
                 {# FILES #}
-                <table class="m-t-20">
+				<div class="responsive-box">
+               		<table class="m-t-20">
 						<thead>
 							<tr>
 								<th>PHP</th>
@@ -133,7 +139,8 @@
 								<td><span>$file-&gt;move('ruta/', $file-&gt;getClientOriginalName());</span></td>
 							</tr>
                         </tbody>
-				</table>
+					</table>
+				</div>
 
                 <h2>Objeto <span>$session</span></h2>
                 <p>El objeto <span>$session</span> es definido en <span>Ocrend/Kernel/Config/Config.php</span>, representa un objeto para manejar todas las sesiones dentro del sistema.</p>
@@ -144,7 +151,8 @@
 
                 <h3>Accediendo a las sesiones</h3>
                 <p>Se presenta una tabla de equivalencias.</p>
-                <table>
+                <div class="responsive-box">
+					<table>
 						<thead>
 							<tr>
 								<th>PHP</th>
@@ -169,7 +177,8 @@
 								<td><span>$session-&gt;remove('elemento')</span></td>
 							</tr>
 						</tbody>
-				</table>
+					</table>
+				</div>
 
                 <h2>Objeto <span>$cookie</span></h2>
                 <p>El objeto <span>$cookie</span> es definido en <span>Ocrend/Kernel/Config/Config.php</span>, representa un objeto para manejar todas las cookies dentro del sistema.</p>
@@ -178,7 +187,8 @@
 
                 <h3>Accediendo a las cookies</h3>
                 <p>Se presenta una tabla de equivalencias.</p>
-                <table>
+                <div class="responsive-box">
+					<table>
 						<thead>
 							<tr>
 								<th>PHP</th>
@@ -209,7 +219,8 @@
 								<td><span>$cookie-&gt;remove('elemento')</span></td>
 							</tr>
 						</tbody>
-				</table>
+					</table>
+				</div>
 
                 <h3>Sesión de usuario por cookie encriptada</h3>
                 <p>Por defecto, en <span>sessions/user_cookie/enable</span> en <span>Ocrend.ini.yml</span> viene activado éste sistema de sesiones de usuarios con cookie encriptada, al colocar dicho parámetro en false se deshabilita esa modalidad de sesiones.</p>

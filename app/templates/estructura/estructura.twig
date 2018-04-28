@@ -9,112 +9,115 @@
                 <h1>Estructura de Archivos</h1>
                 <p>Listado de carpetas y archivos relevantes sobre la arquitectura de una aplicación web realizada con Ocrend Framework, se detalla el fin de cada carpeta y archivo.</p>     
             
-                <table>
-					<thead>
-						<tr>
-							<th>Archivo / Carpeta</th>
-							<th>Propósito</th>
-						</tr>
-					</thead>
-					<tbody>
-                        <tr>
-                            <td><span>api/</span></td>
-                            <td>API RESTFULL</td>
-                        </tr>
-                        <tr>
-                            <td><span>api/controllers/</span></td>
-                            <td>Controladores de la api, manejadores de verbos http <strong>GET</strong> y <strong>POST</strong></td>
-                        </tr>
-                        <tr>
-                            <td><span>app/</span></td>
-                            <td>Contenido lógico donde se construye la aplicación</td>
-                        </tr>
-                        <tr>
-                            <td><span>app/controllers/</span></td>
-                            <td>Controladores de la aplicación</td>
-                        </tr>
-                        <tr>
-                            <td><span>app/models/</span></td>
-                            <td>Modelos de la aplicación</td>
-                        </tr>
-                        <tr>
-                            <td><span>app/templates/</span></td>
-                            <td>Vistas de la aplicación en archivos twig</td>
-                        </tr>
-                        <tr>
-                            <td><span>app/templates/.compiled/</span></td>
-                            <td>Archivos compilados de las vistas</td>
-                        </tr>
-                        <tr>
-                            <td><span>assets/</span></td>
-                            <td>Datos públicos de la aplicación, como css y javascript</td>
-                        </tr>
-                        <tr>
-                            <td><span>assets/error/catch.html</span></td>
-                            <td>Error 500 personalizado para cuando un error interno ocurre en modo producción</td>
-                        </tr>
-                        <tr>
-                            <td><span>assets/framework/</span></td>
-                            <td>Recursos del framework, no necesarios en modo producción ni tampoco ser incluidos en ningún layout de vista</td>
-                        </tr>
-                        <tr>
-                            <td><span>assets/jscontrollers/</span></td>
-                            <td>Ruta utilizada por el generador, y estandarizada para guardar la lógica javascript que se conecta vía AJAX a la API</td>
-                        </tr>
-                        <tr>
-                            <td><span>assets/mail/</span></td>
-                            <td>Ruta con los archivos plantilla que utiliza <span>Helper\Emails</span></td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/Kernel/</span></td>
-                            <td>Kernel de Ocrend Framework</td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/Kernel/Config/Ocrend.ini.yml</span></td>
-                            <td>Archivo de configuración del Framework</td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/Kernel/Controllers/</span></td>
-                            <td>Arquitectura que define los controladores</td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/Kernel/Cookies</span></td>
-                            <td>Arquitectura que define el uso de las cookies</td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/Kernel/Database/</span></td>
-                            <td>Arquitectura que define el uso de las bases de datos</td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/Kernel/Generator/</span></td>
-                            <td>Contenido lógico del generador de código</td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/Kernel/Helpers/</span></td>
-                            <td>Helpers utilizables en toda la aplicación</td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/Kernel/Models/</span></td>
-                            <td>Arquitectura que define los modelos</td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/Kernel/Router/</span></td>
-                            <td>Enrutador de url's amigables del framework</td>
-                        </tr>
-                        <tr>
-                            <td><span>Ocrend/vendor/</span></td>
-                            <td>Librerías externas utilizadas por el framework, y lugar para instalar con composer contenidos de terceros</td>
-                        </tr>
-                        <tr>
-                            <td><span>gen</span></td>
-                            <td>Generador de código</td>
-                        </tr>
-                        <tr>
-                            <td><span>index.php</span></td>
-                            <td>Inicializador del framework</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                <div class="responsive-box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Archivo / Carpeta</th>
+                                <th>Propósito</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span>api/</span></td>
+                                <td>API RESTFULL</td>
+                            </tr>
+                            <tr>
+                                <td><span>api/controllers/</span></td>
+                                <td>Controladores de la api, manejadores de verbos http <strong>GET</strong> y <strong>POST</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span>app/</span></td>
+                                <td>Contenido lógico donde se construye la aplicación</td>
+                            </tr>
+                            <tr>
+                                <td><span>app/controllers/</span></td>
+                                <td>Controladores de la aplicación</td>
+                            </tr>
+                            <tr>
+                                <td><span>app/models/</span></td>
+                                <td>Modelos de la aplicación</td>
+                            </tr>
+                            <tr>
+                                <td><span>app/templates/</span></td>
+                                <td>Vistas de la aplicación en archivos twig</td>
+                            </tr>
+                            <tr>
+                                <td><span>app/templates/.compiled/</span></td>
+                                <td>Archivos compilados de las vistas</td>
+                            </tr>
+                            <tr>
+                                <td><span>assets/</span></td>
+                                <td>Datos públicos de la aplicación, como css y javascript</td>
+                            </tr>
+                            <tr>
+                                <td><span>assets/error/catch.html</span></td>
+                                <td>Error 500 personalizado para cuando un error interno ocurre en modo producción</td>
+                            </tr>
+                            <tr>
+                                <td><span>assets/framework/</span></td>
+                                <td>Recursos del framework, no necesarios en modo producción ni tampoco ser incluidos en ningún layout de vista</td>
+                            </tr>
+                            <tr>
+                                <td><span>assets/jscontrollers/</span></td>
+                                <td>Ruta utilizada por el generador, y estandarizada para guardar la lógica javascript que se conecta vía AJAX a la API</td>
+                            </tr>
+                            <tr>
+                                <td><span>assets/mail/</span></td>
+                                <td>Ruta con los archivos plantilla que utiliza <span>Helper\Emails</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/Kernel/</span></td>
+                                <td>Kernel de Ocrend Framework</td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/Kernel/Config/Ocrend.ini.yml</span></td>
+                                <td>Archivo de configuración del Framework</td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/Kernel/Controllers/</span></td>
+                                <td>Arquitectura que define los controladores</td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/Kernel/Cookies</span></td>
+                                <td>Arquitectura que define el uso de las cookies</td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/Kernel/Database/</span></td>
+                                <td>Arquitectura que define el uso de las bases de datos</td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/Kernel/Generator/</span></td>
+                                <td>Contenido lógico del generador de código</td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/Kernel/Helpers/</span></td>
+                                <td>Helpers utilizables en toda la aplicación</td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/Kernel/Models/</span></td>
+                                <td>Arquitectura que define los modelos</td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/Kernel/Router/</span></td>
+                                <td>Enrutador de url's amigables del framework</td>
+                            </tr>
+                            <tr>
+                                <td><span>Ocrend/vendor/</span></td>
+                                <td>Librerías externas utilizadas por el framework, y lugar para instalar con composer contenidos de terceros</td>
+                            </tr>
+                            <tr>
+                                <td><span>gen</span></td>
+                                <td>Generador de código</td>
+                            </tr>
+                            <tr>
+                                <td><span>index.php</span></td>
+                                <td>Inicializador del framework</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
         </main>
