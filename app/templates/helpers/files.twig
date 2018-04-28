@@ -6,7 +6,162 @@
             {% include 'overall/menu' %}
 
             <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
-                3 
+                <h1>Helper Files</h1>
+                <p>Helper con funciones útiles para el tratamiento de archivos.</p>
+                <pre class="php"><code>use Ocrend\Kernel\Helpers\Files</code></pre>
+
+                <h2>La clase <span>Files</span></h2>
+                <p>Detalle de métodos, con parámetros y respuestas.</p>
+
+                <table>
+						<thead>
+							<tr>
+								<th>PHP</th>
+								<th>TWIG</th>
+								<th>Funcionalidad</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="nowarp">Files::<span>read_file()</span> : string</td>
+								<td class="nowarp text-center">--</td>
+								<td>
+									<p>Devuelve un string con el contenido de un archivo</p>
+									<ul>
+                                        <li><span>string $dir</span> Directorio del archivo a leer</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp">Files::<span>write_file()</span> : int</td>
+								<td class="nowarp text-center">--</td>
+								<td>
+									<p>Escribe un string completo en un archivo, si este no existe lo crea y catidad de bytes escritos en el archivo.</p>
+									<ul>
+                                        <li><span>string $dir</span> Directorio del archivo escribir/crear</li>
+									    <li><span>string $content</span> Contenido a escribir</li>
+                                    </ul>
+								</td>
+							</tr>
+                            <tr>
+								<td class="nowarp">Files::<span>write_in_file()</span> : int</td>
+								<td class="nowarp text-center">--</td>
+								<td>
+									<p>Escribe un string completo en un archivo, añade todo el contenido al final del mismo y devuelve la catidad de bytes escritos en el archivo.</p>
+									<ul>
+                                        <li><span>string $dir</span> Directorio del archivo escribir</li>
+									    <li><span>string $content</span> Contenido a escribir</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp">Files::<span>delete_file()</span> : bool</td>
+								<td class="nowarp text-center">--</td>
+								<td>
+									<p>Borra un archivo en un directorio y true si borró el fichero, false si no (porque no existía)</p>
+									<ul>
+                                        <li><span>string $route</span> Ruta del fichero</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp">Files::<span>get_file_ext()</span> : string</td>
+								<td class="nowarp">{{ "{{ get_file_ext() }}" }}</td>
+								<td>
+									<p>Devuelve la extensión de un archivo cualquiera.</p>
+									<ul>
+                                        <li><span>string $file_name</span> Nombre del archivo, da igual si es solo el nombre o la ruta con el nombre</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp">Files::<span>is_image()</span> : bool</td>
+								<td class="nowarp">{{ "{{ is_image() }}" }}</td>
+								<td>
+									<p>Dice si un elemento es una imagen o no según su extensión.</p>
+									<ul>
+                                        <li><span>string $file_name</span> Nombre del archivo, da igual si es solo el nombre o la ruta con el nombre</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp">Files::<span>file_size()</span> : int</td>
+								<td class="nowarp">{{ "{{ file_size() }}" }}</td>
+								<td>
+									<p>Devuelve el tamaño en Kbytes de un fichero.</p>
+									<ul>
+                                        <li><span>string $file</span> Path del fichero</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp">Files::<span>date_file()</span> : string</td>
+								<td class="nowarp">{{ "{{ date_file() }}" }}</td>
+								<td>
+									<p>Devuelve la fecha y hora exacta de creación de un fichero.</p>
+									<ul>
+                                        <li><span>string $file</span> Path del fichero</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp">Files::<span>get_files_in_dir()</span> : array</td>
+								<td class="nowarp">{{ "{{ get_files_in_dir() }}" }}</td>
+								<td>
+									<p>Devuelve en un arreglo numérico, la ruta de todos los ficheros en un directorio filtrado por tipos.</p>
+									<ul>
+                                        <li><span>string $dir</span> Directorio completo</li>
+									    <li><span>string $types = ''</span> tipos de archivos a buscar, por defecto '' significa todos, se puede pasar por ejemplo 'jpg'</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp">Files::<span>create_dir()</span> : bool</td>
+								<td class="nowarp text-center">--</td>
+								<td>
+									<p>Crea un directorio.</p>
+                                    <ul>
+									    <li><span>string $dir</span> Directorio a crear</li>
+									    <li><span>int $permisos = 0777</span> Permisos del directorio a crear, por defecto es "todos los permisos"</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp">Files::<span>rm_dir()</span></td>
+								<td class="nowarp text-center">--</td>
+								<td>
+									<p>Elimina de forma recursiva un directorio con su contenido.</p>
+                                    <ul>
+									    <li><span>string $dir</span> Directorio a borrar</li>
+                                    </ul>
+								</td>
+							</tr>	
+							<tr>
+								<td class="nowarp">Files::<span>images_in_dir()</span> : int</td>
+								<td class="nowarp">{{ "{{ images_in_dir() }}" }}</td>
+								<td>
+									<p>Devuelve la cantidad de imágenes contenidas dentro de un directorio.</p>
+                                    <ul>
+									    <li><span>string $dir</span> Directorio en donde están las imagenes</li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp">Files::<span>move_from_dir()</span></td>
+								<td class="nowarp text-center">--</td>
+								<td>
+									<p>Copia todos los ficheros de un directorio a un directorio nuevo, si el directorio nuevo no existe, es creado.</p>
+    								<p>Si en el directorio nuevo existe un archivo con el mismo nombre de alguno en el viejo, este será sobreescrito.</p>
+									<ul>
+									    <li><span>string $old_dir</span> Ruta del directorio viejo (de donde se moverán los ficheros)</li>
+									    <li><span>string $new_dir</span> Ruta del directorio nuevo (hacia donde se moverán los ficheros)</li>
+									    <li><span>bool $only_images = false</span> Pasar como <span>TRUE</span>, si sólo quiere pasar imagenes</li>
+									    <li><span>bool $delete_old = false</span> Pasar como <span>TRUE</span>, si se quiere borrar todo el contenido del viejo directorio al pasarse</li>
+                                    </ul>
+								</td>
+							</tr>					
+						</tbody>
+				</table>
             </section>
 
         </main>

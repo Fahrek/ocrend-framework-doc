@@ -40,8 +40,8 @@ class helpersController extends Controllers implements IControllers {
             break;
             case 'files':
                 $this->template->display('helpers/files',array(
-                    'page_title' => '',
-                    'page_description' => ''
+                    'page_title' => 'Helper Files',
+                    'page_description' => 'Helper con funciones útiles para el tratamiento de archivos.'
                 ));
             break;
             case 'strings':
