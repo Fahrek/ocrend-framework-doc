@@ -6,7 +6,55 @@
             {% include 'overall/menu' %}
 
             <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
-                2  
+                <h1>Helper Emails</h1>  
+                <p>Helper con funciones útiles para trabajar con evío de correos mediante PHPMailer.</p>
+                <pre class="php"><code>use Ocrend\Kernel\Helpers\Emails</code></pre>
+
+                <h2>La clase <span>Emails</span></h2>
+                <p>Detalle de métodos, con parámetros y respuestas.</p>
+                <table>
+						<thead>
+							<tr>
+								<th>PHP</th>
+								<th>TWIG</th>
+								<th>Funcionalidad</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="nowarp">Emails::<span>send()</span> : bool </td>
+								<td class="nowarp text-center">--</td>
+								<td>
+									<p>Envía un correo electrónico utilizando SwiftMmailer</p>
+									<ul>
+                                        <li><span>array $dest</span> Arreglo con la forma <span>{'email' => 'nombre'}</span></li>
+                                        <li>
+                                            <p><span>array $content</span> Arreglo con el contenido por secciones con la forma <span>{'{{ "{{llave}}" }}' => 'reemplazo'}</span></p>
+                                            <ul>
+                                                <li><span>{{ "{{title}}" }}</span> Título del mensaje</li>
+                                                <li><span>{{ "{{url_logo}}" }}</span> Url de logo</li>
+                                                <li><span>{{ "{{logo}}" }}</span> Logo</li>
+                                                <li><span>{{ "{{content}}" }}</span> Contenido del mensaje en HTML</li>
+                                                <li><span>{{ "{{btn-href}}" }}</span> Url del botón</li>
+                                                <li><span>{{ "{{btn-name}}" }}</span> Texto del boton</li>
+                                                <li><span>{{ "{{copyright}}" }}</span> Texto de copyright</li>
+                                            </ul>
+                                            <p>Las plantillas de email se encuentran en <span>./assets/mail/</span></p>
+                                        </li>
+                                        <li>
+                                            <p><span>int $template</span> plantilla que usará el cuerpo del mensaje</p>
+                                            <ul>
+                                                <li><span>0</span> plantilla con botón <b>por defecto</b></li>
+                                                <li><span>1</span> plantilla sin botón</li>
+                                            </ul>
+                                        </li>
+                                        <li><span>array $adj</span> Arreglo opcional con la dirección local de los archivos adjuntos</li>
+                                    </ul>
+								</td>
+							</tr>						
+						</tbody>
+				</table>
+                <p><span>NOTA:</span> los datos de configuración SMTP se encuentran en <span>mailer/</span> de <span>Ocrend.ini.yml</span></p>
             </section>
 
         </main>

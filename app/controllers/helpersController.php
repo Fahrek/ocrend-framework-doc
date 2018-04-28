@@ -34,8 +34,8 @@ class helpersController extends Controllers implements IControllers {
             break;
             case 'emails':
                 $this->template->display('helpers/emails',array(
-                    'page_title' => '',
-                    'page_description' => ''
+                    'page_title' => 'Helper Emails',
+                    'page_description' => 'Helper con funciones útiles para trabajar con evío de correos mediante SwiftMailer.'
                 ));
             break;
             case 'files':
