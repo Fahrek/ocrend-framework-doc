@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: /app
+Disallow: /api
+Disallow: /Ocrend
+Sitemap: https://framework.ocrend.com/sitemap.xml
