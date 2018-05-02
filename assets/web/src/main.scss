@@ -399,6 +399,13 @@ main {
                     margin: 0 auto;
                 }
             }
+
+            code {
+                span {
+                    background-color: inherit;
+                    color: inherit;
+                }
+            }
         }
 
         img.responsive {

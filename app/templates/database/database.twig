@@ -1,0 +1,123 @@
+{% extends 'overall/layout' %}
+{% block appBody %}
+    <div class="contenedor">
+        <main class="row">
+
+            {% include 'overall/menu' %}
+
+            <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
+                <h1>Bases de datos</h1>
+                <p>La manipulación de las bases de datos en Ocrend Framework se realiza <b>exclusivamente desde los modelos</b> utilizando <a href="modelos/caracteristicas/database">la característica DBModel</a>.</p> 
+            
+                <h2>Listado de drivers soportados</h2>
+                <p>Se presenta una lista con todos los drivers soportados</p>
+                <div class="responsive-box">
+                    <table>
+						<thead>
+							<tr>
+								<th>Driver</th>
+								<th>Nombre interno</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>MySQL 5.7+</td>
+								<td><span>mysql</span> con mysqli nativo</td>
+							</tr>
+							<tr>
+								<td>SQLite3</td>
+								<td><span>sqlite3</span> a través de PDO</td>
+							</tr>
+						</tbody>
+					</table>
+                </div>
+                <p class="m-t-10">Para trabajar con un driver u otro, se debe especificar cuál es el driver por defecto en <span>Ocrend.ini.yml</span></p>
+                <p>Otra forma de especificar el driver, es directamente en el método <span>startDBConexion()</span> del Trait DBModel.</p>
+            
+                <h2>El atributo <span>$this-&gt;db</span></h2>
+                <p>Una vez que se añade la característica <span>DBModel</span> a un modelo, el modelo hereda el atributo <span>$db</span>, si el motor configurado es SQLite3, será una instancia de <a href="http://php.net/manual/es/class.pdo.php" target="_blank"><span>PDO PHP</span></a> y si es MySQL, será una instancia de <a href="http://php.net/manual/es/book.mysqli.php" target="_blank">mysqli PHP</a></p>
+                <p>Ambas instancias son una implementación de <span>Ocrend\Kernel\Database\Driver</span> por lo que comparten los siguientes métodos:</p>
+                <div class="reponsive-box">
+                    <table>
+						<thead>
+							<tr>
+								<th>Método</th>
+								<th>Función</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="nowarp">public <span>scape()</span> : string</td>
+								<td><p>Sana un valor para posteriormente ser introducido en una query</p>
+                                    <ul>
+									    <li><span>mixed $e</span> valor a sanar</li>
+                                    </ul>
+								</td>
+							</tr>
+                            <tr>
+								<td class="nowarp">public <span>select()</span> : false|array</td>
+								<td><p>Selecciona y lista en un arreglo asociativo los resultados de una búsqueda en la base de datos, si no hay resultados retorna <span>false</span></p>
+                                    <ul>
+                                        <li><span>string $fields</span> Elementos a seleccionar separados por coma</li>
+									    <li><span>string $table</span> Tabla de la cuál se quiere extraer los elementos</li>
+									    <li><span>$inners = null</span> Instrucciones <span>INNER</span></li>
+									    <li><span>$where = null</span> Condiciones de búsqueda (las variables externas deben ser filtradas con scape)</li>
+                                        <li><span>$limit = null</span> Límite de resultados, sólamente se debe especificar el/los números</li>
+                                        <li><span>string $extra = ''</span> Instrucciones extras antes de <span>$limit</span>, como order by, group by...</li>
+                                    </ul>
+								</td>
+							</tr>
+                            <tr>
+								<td class="nowarp">public <span>update()</span> : int</td>
+								<td><p>Actualiza elementos de una tabla en la base de datos según una condición y devuelve la cantidad de filas afectadas.</p>
+                                    <ul>    
+									    <li><span>string $table</span> Tabla a editar</li>
+									    <li>
+                                            <p><span>array $e</span> Arreglo de campos a editar</p>
+<pre class="php"><code>
+[
+    'campo' => 'valor nuevo'
+]
+</code></pre>
+                                        </li>
+									    <li><span>$where = null</span> Condiciones de edición (las variables externas deben ser filtradas con scape)</li>
+                                        <li><span>$limit = null</span> Límite de modificaciones, sólamente se debe especificar el número</li>
+                                    </ul>
+								</td>
+							</tr>
+                            <tr>
+								<td class="nowarp">public <span>insert()</span> : int</td>
+								<td><p>Inserta nuevos elementos en una tabla de la base de datos y devuelve el id del último elemento insertado si la tabla tiene una llave primaria con autoincremento.</p>
+                                    <ul>    
+									    <li><span>string $table</span> Tabla a donde se insertará los elementos</li>
+									    <li>
+                                            <p><span>array $e</span> Arreglo de campos a insertar</p>
+<pre class="php"><code>
+[
+    'campo' => 'valor'
+]
+</code></pre>
+                                        </li>
+                                    </ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="nowarp">public <span>delete()</span> : int</td>
+								<td><p>Elimina elementos de una tabla y devuelve la cantidad de filas afectadas.</p>
+                                    <ul>
+									    <li><span>string $table</span> Tabla de la cuál se eliminará elementos</li>
+									    <li><span>$where = null</span> Condiciones para eliminar</li>
+                                        <li><span>$limit = null</span> Límite de elementos a borrar, sólamente se debe especificar el número</li>     
+                                    </ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    {% include 'overall/footer' %}
+{% endblock %}

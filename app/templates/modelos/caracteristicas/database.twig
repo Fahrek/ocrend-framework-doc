@@ -1,0 +1,76 @@
+{% extends 'overall/layout' %}
+{% block appBody %}
+    <div class="contenedor">
+        <main class="row">
+
+            {% include 'overall/menu' %}
+
+            <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
+                <h1>Característica DBModel</h1>
+                <p>La característica DBModel es un <span>Trait</span> que se añade como rasgo a aquellos modelos que necesiten de conexión a base de datos.</p>
+
+                <h2>Cómo conectarse a una base de datos</h2>
+                <p>Se necesita crear un modelo que se pueda conectar a la base de datos, para ello éste debe tener la siguiente estructura</p>
+<pre class="php"><code>
+namespace app\models;
+
+use app\models as Model;
+use Ocrend\Kernel\Helpers as Helper;
+use Ocrend\Kernel\Models\Models;
+use Ocrend\Kernel\Models\IModels;
+use Ocrend\Kernel\Models\ModelsException;
+use Ocrend\Kernel\Models\Traits\DBModel;
+use Ocrend\Kernel\Router\IRouter;
+
+class Ejemplo extends Models implements IModels {
+    # Usar la característica DBModel
+    use DBModel;
+
+    public function __construct(IRouter $router = null) {
+        parent::__construct($router);
+        # Construir la conexión
+	$this->startDBConexion();
+    }
+
+}
+</code></pre> 
+                <p><span>NOTA:</span> Con dicha configuración, el modelo tomará los atributos configurados en <span>database</span> de <span>Config.ini.yml</span></p>
+
+                <h2>Crear modelo con DBModel usando el generador</h2>
+                <p>Otra forma de crear un modelo que pueda conectarse con la base de datos, es usando el generador de código el cual sin falla alguna escribirá todo el código necesario para que el modelo quede funcional.</p>
+                <pre class="ssh"><code>php gen app:m Nombre --db</code></pre>
+                <p>La consola deberá indicar si se creó el modelo con éxito, en caso de que ya exista un modelo con ese nombre preguntará si desea sobreescribirlo.</p>
+           
+                <h2>El trait <span>DBModel</span></h2>
+                <p>El trait DBModel está ubicada en el namespace <span>Ocrend\Kernel\Models\Traits\DBModels</span>. Es un rasgo que se añade a todos los modelos que necesiten realizar operaciones con la base de datos.</p>
+                <div class="responsive-box">
+                    <table>
+						<thead>
+							<tr>
+								<th>Método / Atributo</th>
+								<th>Función</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="nowarp">protected <span>$db</span></td>
+								<td>Tiene la instancia de la conexión con la base de datos actual.</td>
+							</tr>
+							<tr>
+								<td class="nowarp">protected <span>startDBConexion</span></td>
+								<td><p>Inicializa la conexión con una base de datos.</p>
+                                    <ul>
+									    <li><span>$driver = null</span> Adapta al modelo actual para trabajar con el driver de base de datos especificado.</li>
+                                    </ul>									
+								</td>
+							</tr>
+						</tbody>
+					</table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    {% include 'overall/footer' %}
+{% endblock %}

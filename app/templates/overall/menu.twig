@@ -29,11 +29,10 @@
                 <a href="javascript:void(0)">Modelos</a>
                 <ul>
                     <li><a class="{{ controller == 'modelos' and method == null ? 'active' : '' }}" href="modelos">Uso y Creación</a></li>
-                    <li><a class="{{ method == 'dbmodel' ? 'active' : '' }}" href="modelos/dbmodel">Característica DBModel</a></li>
+                    <li><a class="{{ method == 'caracteristicas' ? 'active' : '' }}" href="modelos/caracteristicas/database">Característica DBModel</a></li>
                 </ul>
             </li> 
             <li><a class="{{ controller == 'database' ? 'active' : '' }}" href="database">Bases de Datos</a></li>
-            <li><a class="{{ controller == 'debug' ? 'active' : '' }}" href="debug">Depurador</a></li>
             <li><a class="{{ controller == 'rest' ? 'active' : '' }}" href="rest">API RESTFULL</a></li>
             <li><a class="{{ controller == 'generador' ? 'active' : '' }}" href="generador">Generador</a></li>
         </ul>

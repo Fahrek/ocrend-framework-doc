@@ -1,0 +1,104 @@
+{% extends 'overall/layout' %}
+{% block appBody %}
+    <div class="contenedor">
+        <main class="row">
+
+            {% include 'overall/menu' %}
+
+            <section class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-9 col-lg-offset-3">
+                <h1>Generador de código por consola</h1>  
+                <p>Es un script escrito en PHP orientando su uso a la consola para crear controladores, modelos, vistas ( a corde al diseño del sitio web ) y ficheros javascript para conectarse con ajax a la api restfull.</p>    
+                <p><span>NOTA:</span> para utilizar el generador, se debe poder utilizar PHP desde la consola, es decir, tenerla en el registro de variabels globales de Windows/Mac/Linux</p>
+            
+                <h2>Cómo utilizarlo</h2>
+                <p>Hay que ubicarse en la ruta root de el framework desde la consola, es decir, en el índice donde se encuentra el fichero <span>gen</span></p>
+                <pre class="ssh"><code>php gen</code></pre>
+                <p>Dicho comando mostrará un menú de ayuda con todos los posibles comandos que puede manejar el generador.</p>
+
+                <h2>Crear un controlador</h2>
+                <p>Un uso simple, sería crear un controlador</p>
+                <pre class="ssh"><code>php gen app:c Nombre</code></pre>
+
+                <h3>Argumentos</h3>
+                <p>Crear un controlador con una vista</p>
+                <pre class="ssh"><code>php gen app:c Nombre v</code></pre>
+
+                <p>Crear un controlador con un modelo</p>
+                <pre class="ssh"><code>php gen app:c Nombre m</code></pre>
+
+                <p>Crear un controlador con un modelo y una vista (el orden de mv es irrelevante)</p>
+                <pre class="ssh"><code>php gen app:c Nombre mv</code></pre>
+
+                <h3>Opciones (sólo válidas si se acompañan con un modelo)</h3>
+
+                <p>El modelo acompañado, debe conectarse a la base de datos</p>
+                <pre class="ssh"><code>php gen app:c Nombre m --db</code></pre>
+
+
+
+                <h2>Crear una vista</h2>
+                <p>El comando para crear una vista es</p>
+                <pre class="ssh"><code>php gen app:v Nombre</code></pre>
+
+                <h3>Argumentos</h3>
+                <p>Crear un controlador con una vista</p>
+                <pre class="ssh"><code>php gen app:v Nombre c</code></pre>
+
+                <p>Crear una vista con un modelo</p>
+                <pre class="ssh"><code>php gen app:v Nombre m</code></pre>
+
+                <p>Crear un controlador con un modelo y una vista (el orden de mc es irrelevante)</p>
+                <pre class="ssh"><code>php gen app:v Nombre mc</code></pre>
+
+                <h3>Opciones (sólo válidas si se acompañan con un modelo)</h3>
+
+                <p>El modelo acompañado, debe conectarse a la base de datos</p>
+                <pre class="ssh"><code>php gen app:v Nombre m --db</code></pre>
+
+                <p>La vista generará un formulario simple, creará un archivo javascript que se conectará vía AJAX utilizando jQuery con la API RESTFULL, además escribirá un método en el modelo creado y en el verbo POST creará un endpoint.</p>
+                <pre class="ssh"><code>php gen app:v Nombre m --ajax</code></pre>
+
+                <p>Combinación de los anteriores (el orden es irrelevante)</p>
+                <pre class="ssh"><code>php gen app:v Nombre m --db --ajax</code></pre>
+
+
+
+                <h2>Crear un modelo</h2>
+                <p>El comando para crear un modelo es</p>
+                <pre class="ssh"><code>php gen app:m Nombre</code></pre>
+
+                <h3>Argumentos</h3>
+
+                <p>Crear un modelo con una vista</p>
+                <pre class="ssh"><code>php gen app:m Nombre v</code></pre>
+
+                <p>Crear un modelo con un controlador</p>
+                <pre class="ssh"><code>php gen app:m Nombre c</code></pre>
+
+                <p>Crear un controlador con un modelo y una vista (el orden de mc es irrelevante)</p>
+                <pre class="ssh"><code>php gen app:v Nombre mc</code></pre>
+
+                <h3>Opciones</h3>
+
+                <p>El modelo debe conectarse a la base de datos</p>
+                <pre class="ssh"><code>php gen app:m Nombre --db</code></pre>
+
+
+                <h2>La combinación más completa</h2>
+                <p>Todos los comandos anteriores se pueden combinar en uno solo y crear un módulo completo</p>
+                <pre class="ssh"><code>php gen app:m Nombre vc --db --ajax</code></pre>
+
+                <h2>Crear sistema de usuarios Inicio, Registro, Recuperar Contraseña</h2>
+                <p><span>NOTA:</span> el framework debe estar perfectamente configurado con la base de datos, ésta acción intentará añadir una nueva tabla <span>users</span> a la base de datos conectada por defecto.</p>
+                <pre class="ssh"><code>php gen users:install</code></pre>
+
+                <h2>Personalizar archivos generados</h2>
+                <p>Toda la estructura de los archivos generados es modificable en <span>./Ocrend/Kernel/Generator/Content</span></p>
+
+            </section>
+
+        </main>
+    </div>
+
+    {% include 'overall/footer' %}
+{% endblock %}
