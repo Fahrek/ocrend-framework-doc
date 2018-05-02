@@ -29,7 +29,7 @@ mailer:
 
 # Configuración de twig
 twig:
-  cache: false
+  cache: true
   compiled_dir: ./app/templates/.compiled/
   charset: UTF-8
   strict_variables: false
@@ -39,7 +39,7 @@ twig:
 build:
   production: true
   name: Ocrend Framework 3 
-  url: http://localhost/ocrend-framework-doc/
+  url: https://framework.ocrend.com/
   timezone: America/Caracas
 
 # Configuración de cookies
@@ -47,7 +47,7 @@ sessions:
   lifetime: 3600
   user_cookie:
     enable: true
-    key_encrypt: X8f3p@9Vde0WvKauzI8C
+    key_encrypt: 0CR3NDFR4D0CX8f3p@9Vde0WvKauzI8C
     lifetime: 3600
 
 # Configuración de la api
@@ -57,5 +57,5 @@ api:
 
 # Configuración de ruta
 router:
-  ssl: false
-  path: localhost/ocrend-framework-doc/
+  ssl: true
+  path: framework.ocrend.com/
