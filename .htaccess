@@ -19,8 +19,8 @@
     RewriteEngine On
 
     # --- FORZAR HTTPS EN SU SITIO --- #
-    #RewriteCond %{SERVER_PORT} 80 
-    #RewriteRule ^(.*)$ https://ocrend.com/$1 [R,L]
+    RewriteCond %{SERVER_PORT} 80 
+    RewriteRule ^(.*)$ https://framework.ocrend.com/$1 [R,L]
     # --- FORZAR HTTPS EN SU SITIO --- #
 
     # --- HELP PARA ROUTER DEL FRAMEWORK --- #
@@ -57,8 +57,8 @@
     </FilesMatch>
 
     # --- FORZAR CACHÉ POR 1 MES --- #
-    #<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|js|xml|txt|css|svg)$">
-    #    Header set Cache-Control "max-age=2592000, public"
-    #</FilesMatch>
+    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|js|xml|txt|css|svg)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
 
 </IfModule>
